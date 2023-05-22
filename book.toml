@@ -1,0 +1,10 @@
+[book]
+authors = ["Mina329"]
+language = "en"
+multilingual = false
+src = "src"
+title = "QA Exercises"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "rust"
