@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 2 Exercises - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="exercise_1.html"><strong aria-hidden="true">1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_2.html" class="active"><strong aria-hidden="true">2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_3.html"><strong aria-hidden="true">3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_4.html"><strong aria-hidden="true">4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_5.html"><strong aria-hidden="true">5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_6.html"><strong aria-hidden="true">6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_7.html"><strong aria-hidden="true">7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_8.html"><strong aria-hidden="true">8.</strong> Lecture 8 Exercises</a></li><li class="chapter-item expanded "><a href="test_bank.html"><strong aria-hidden="true">9.</strong> Test Bank</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercise-2"><a class="header" href="#exercise-2">Exercise 2</a></h1>
+<h2 id="1-the-aim-of-5-whys-root-cause-analysis-is-to-find-the-main-technical-causes-behind-the-problem"><a class="header" href="#1-the-aim-of-5-whys-root-cause-analysis-is-to-find-the-main-technical-causes-behind-the-problem">1. The aim of 5 whys root cause analysis is to find the main technical causes behind the problem</a></h2>
+<ul>
+<li>it aims to inspect a certain problem in depth until it shows you real cause</li>
+<li>often, issues that are considered a technical problem actually turn out to be human and process problems.</li>
+<li>avoid answers that are too simple / overlook important details.</li>
+<li>it is used for defects reported from a customer site</li>
+</ul>
+<h2 id="2-when-to-perform-causal-analysis-which-factors-affect-decision-of-effort-and-formality-required"><a class="header" href="#2-when-to-perform-causal-analysis-which-factors-affect-decision-of-effort-and-formality-required">2. When to perform causal analysis? Which factors affect decision of effort and formality required?</a></h2>
+<ul>
+<li><code>when</code>
+<blockquote>
+<ul>
+<li>during the task when problem or successes warrant [<code>تستدعي</code>] a causal analysis</li>
+<li>work product significantly deviates [<code>ينحرف</code>]</li>
+<li>more defects</li>
+<li>process performance exceeds expectations</li>
+<li>process does not meet its quality</li>
+</ul>
+</blockquote>
+</li>
+<li><code>factors</code>
+<blockquote>
+<ul>
+<li><strong>stakeholders</strong></li>
+<li>risks</li>
+<li>complexity</li>
+<li>frequency</li>
+<li>availability of data</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-identify-elements-of-process-improvement-proposal"><a class="header" href="#3-identify-elements-of-process-improvement-proposal">3. Identify elements of process improvement proposal.</a></h2>
+<p>for changes proven to be effective</p>
+<ul>
+<li>areas that were analyzed including their context</li>
+<li>solution selection</li>
+<li>actions achieved</li>
+<li>results achieved</li>
+</ul>
+<h2 id="4-discuss-advantages-of-pcda-approach"><a class="header" href="#4-discuss-advantages-of-pcda-approach">4. Discuss advantages of PCDA approach.</a></h2>
+<ul>
+<li>stimulate continuous improvement</li>
+<li>test possible solutions</li>
+<li>prevent from recurring mistakes</li>
+</ul>
+<h2 id="5-defining-the-problem-is-an-important-step-in-root-cause-analysis-explain-the-rule-that-should-be-followed-in-defining-the-problem"><a class="header" href="#5-defining-the-problem-is-an-important-step-in-root-cause-analysis-explain-the-rule-that-should-be-followed-in-defining-the-problem">5. Defining the problem is an important step in root cause analysis. Explain the rule that should be followed in defining the problem.</a></h2>
+<ol>
+<li>define the problem</li>
+<li>collect data</li>
+<li>identify possible causal factors</li>
+<li>identify the root cause</li>
+<li>recommend and implement solutions</li>
+</ol>
+<blockquote>
+<p>Defining the problem</p>
+<blockquote>
+<p><strong>SMART Rules</strong></p>
+<blockquote>
+<ul>
+<li><code> S -&gt; Specific</code></li>
+<li><code> M -&gt; Measurable</code></li>
+<li><code> A -&gt; Attainable</code></li>
+<li><code> R -&gt; Relevant</code></li>
+<li><code> T -&gt; Time bound</code></li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="6-describe-four-types-of-costs-of-quality"><a class="header" href="#6-describe-four-types-of-costs-of-quality">6. Describe four types of costs of quality.</a></h2>
+<ul>
+<li><code>cost of good quality</code>
+<ul>
+<li>prevention cost
+<blockquote>
+<p>prevent poor quality in products</p>
+</blockquote>
+</li>
+<li>appraisal cost
+<blockquote>
+<p>measure, inspect, evaluate products to assure conformance to quality requirements</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><code>cost of poor quality</code>
+<ul>
+<li>internal failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification before shipment to customer</p>
+</blockquote>
+</li>
+<li>external failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification after shipment to customer</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-identify-steps-of-internal-audit-process"><a class="header" href="#7-identify-steps-of-internal-audit-process">7. Identify steps of internal audit process.</a></h2>
+<ul>
+<li>planning the audit scheduling</li>
+<li>planning the process audit</li>
+<li>conducting the audit</li>
+<li>reporting the audit</li>
+<li>follow up on issue or implements found</li>
+</ul>
+<h2 id="8-explain-roles-in-raci-model"><a class="header" href="#8-explain-roles-in-raci-model">8. Explain roles in RACI model.</a></h2>
+<ul>
+<li>responsible
+<ul>
+<li>
+<blockquote>
+<p>ensure right things happen in the right time</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>accountable
+<ul>
+<li>
+<blockquote>
+<p>ensure that something gets done correctly</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>consult
+<ul>
+<li>
+<blockquote>
+<p>people who need to be consulted</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>inform
+<ul>
+<li>
+<blockquote>
+<p>need to be kept informed</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-list-three-benefits-and-limitations-of-cost-of-quality-system"><a class="header" href="#9-list-three-benefits-and-limitations-of-cost-of-quality-system">9. List three benefits and limitations of cost of quality system.</a></h2>
+<ul>
+<li><code>benefits</code>
+<blockquote>
+<ul>
+<li>higher profitability</li>
+<li>more consistent products</li>
+<li>greater customer satisfaction</li>
+<li>lower costs</li>
+<li>meeting industry standard</li>
+<li>increase staff motivation</li>
+<li>reducing waste</li>
+</ul>
+</blockquote>
+</li>
+<li><code>limitations</code>
+<blockquote>
+<ul>
+<li>measuring quality costs does not solve quality problems</li>
+<li>CoQ is merely a scoreboard for current performance</li>
+<li>inability to quantify the hidden quality costs (hidden factory)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-mcq"><a class="header" href="#10-mcq">10. MCQ</a></h2>
+<ol>
+<li>The outputs of the management reviews shall include decisions and actions related to all following, except:</li>
+</ol>
+<blockquote>
+<p>a. opportunities for improvement</p>
+<p>b. need for changes to quality management system</p>
+<p>c. audit results</p>
+<p>d. resource needs</p>
+</blockquote>
+<ol start="2">
+<li>Which of the following is not included in action plan?</li>
+</ol>
+<blockquote>
+<p>a. affected stakeholders</p>
+<p>c. expected cost</p>
+<p>b. schedule</p>
+<p>d. results achieved</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>c. audit results</code></li>
+<li><code>d. results achieved</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="11-replace-with-key-terms"><a class="header" href="#11-replace-with-key-terms">11. Replace with Key Term(s)</a></h2>
+<ol>
+<li>Cost incurred when a product fails to conform to quality specification before shipment to a customer.</li>
+<li>Principle that states that 80% of effects come from 20% of causes.</li>
+<li>Management meeting at planned intervals to ensure the company quality management system’s continuous suitability, adequacy and alignment with the strategic direction of the organization.</li>
+<li>Method for calculating the costs companies incur ensuring that products meet quality standards, as well as the costs of producing goods that fail to meet quality standards.</li>
+<li>Organization conduct examination at planned intervals to check if quality management system conforms to requirements of International Standard and effectively implemented &amp; maintained.</li>
+<li>Percentage of an organizations total capacity or effort that is being used to overcome the cost of poor quality.</li>
+<li>Matrix that shows how each person contributes to a project.</li>
+<li>A mechanism of analyzing the defects to identify their sources.</li>
+<li>A cycle that is useful tool can help your team solve problems such more efficiency</li>
+<li>it is the cost that are generated as a result of producing defective material</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>internal failure cost</code></li>
+<li><code>Pareto Principle</code></li>
+<li><code>management reviews</code></li>
+<li><code>cost of quality (COQ)</code></li>
+<li><code>hidden factory</code></li>
+<li><code>RACI Model/Matrix</code></li>
+<li><code>RACI Model/Matrix</code></li>
+<li><code>root cause analysis (RCA)</code></li>
+<li><code>PDCA</code></li>
+<li><code>the cost of poor quality (COPQ)</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="12-a-companys-website-redesign-would-require-design-and-development-teams-to-work-on-tasks-concurrently-each-task-would-affect-work-in-sales-marketing-finance-and-business-development-structural-changes-timelines-and-major-costs-would-require-input-and-approval-from-senior-managementneeds-can-be-easily-overlooked-and-requirements-dropped-in-such-complex-projectswhat-should-the-project-manager-create-to-avoid-missing-important-details-and-ensure-clear-communication-throughout-the-project"><a class="header" href="#12-a-companys-website-redesign-would-require-design-and-development-teams-to-work-on-tasks-concurrently-each-task-would-affect-work-in-sales-marketing-finance-and-business-development-structural-changes-timelines-and-major-costs-would-require-input-and-approval-from-senior-managementneeds-can-be-easily-overlooked-and-requirements-dropped-in-such-complex-projectswhat-should-the-project-manager-create-to-avoid-missing-important-details-and-ensure-clear-communication-throughout-the-project">12. A company’s website redesign would require design and development teams to work on tasks concurrently. Each task would affect work in sales, marketing, finance and business development. Structural changes, timelines and major costs would require input and approval from senior management.Needs can be easily overlooked and requirements dropped in such complex projects.What should the project manager create to avoid missing important details and ensure clear communication throughout the project?</a></h2>
+<blockquote>
+<p><code>RACI Matrix</code></p>
+</blockquote>
+<h2 id="13-identify-root-cause-analysis-tool"><a class="header" href="#13-identify-root-cause-analysis-tool">13. Identify root cause analysis tool</a></h2>
+<ol>
+<li>Visual representations of a relationship between two sets of data to test correlation between variables.</li>
+<li>Includes a severity occurrence and detection rating to calculate risk and determine the next steps</li>
+<li>Looking at any problem and drilling down by asking questions and avoid answers that are too simple or overlook important details.</li>
+<li>Every contributing cause and its potential effects can be shown under categories and sub-categories. </li>
+<li>Bar graph that groups the frequency distribution to show the relative significance of causes of failure. </li>
+<li>Group activity to collect different viewpoints encouraging a deeper level of critical thinking.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Scatter plots.</li>
+<li>FMEA.</li>
+<li>5 whys.</li>
+<li>Fish bone diagram. </li>
+<li>Pareto graph.</li>
+<li>Brainstorming.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="14-identify-type-of-root-cause"><a class="header" href="#14-identify-type-of-root-cause">14. Identify type of root cause</a></h2>
+<ol>
+<li>Picking the wrong person for a task.</li>
+<li>The server is not booting up.</li>
+<li>Instructions not accurately followed.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Organizational.</li>
+<li>Physical.</li>
+<li>Human.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="15-identify-pdca-phase"><a class="header" href="#15-identify-pdca-phase">15. Identify PDCA Phase</a></h2>
+<ol>
+<li>Incorporate your plan on a small scale .</li>
+<li>Identify resource needs.</li>
+<li>PDCA model becomes the new standard baseline. </li>
+<li>Audit your plan’s execution.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Do.</li>
+<li>Plan.</li>
+<li>Act.</li>
+<li>Check.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="16-mention-management-review-inputs"><a class="header" href="#16-mention-management-review-inputs">16. Mention management review inputs</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>status of action from previous reviews</li>
+<li>changes in external and internal issues</li>
+<li>information on the performance </li>
+<li>the adequacy of resources</li>
+<li>the effectiveness of actions </li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="17-mention-management-review-outputs"><a class="header" href="#17-mention-management-review-outputs">17. Mention management review outputs</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>opportunities for improvement</li>
+<li>any need for changes</li>
+<li>resource needs</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="18-action-plan"><a class="header" href="#18-action-plan">18. Action plan</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>People responsible for implementation</li>
+<li>Detailed description of the action</li>
+<li>Description of necessary tasks</li>
+<li>Description of the affected areas</li>
+<li>Affected stakeholders</li>
+<li>Schedule</li>
+<li>Cost expected</li>
+<li>Estimated cost of not addressing the issue</li>
+<li>Description of implementation actions</li>
+<li>Expected impact </li>
+<li>Identified needed pilots</li>
+</ol>
+</blockquote>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="exercise_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="exercise_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="exercise_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="exercise_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

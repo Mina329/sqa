@@ -1,0 +1,494 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 5 Exercises - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="exercise_1.html"><strong aria-hidden="true">1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_2.html"><strong aria-hidden="true">2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_3.html"><strong aria-hidden="true">3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_4.html"><strong aria-hidden="true">4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_5.html" class="active"><strong aria-hidden="true">5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_6.html"><strong aria-hidden="true">6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_7.html"><strong aria-hidden="true">7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_8.html"><strong aria-hidden="true">8.</strong> Lecture 8 Exercises</a></li><li class="chapter-item expanded "><a href="test_bank.html"><strong aria-hidden="true">9.</strong> Test Bank</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercise-5"><a class="header" href="#exercise-5">Exercise 5</a></h1>
+<h2 id="1-replace-with-key-terms"><a class="header" href="#1-replace-with-key-terms">1. replace with key terms</a></h2>
+<ol>
+<li>Black-box testing technique used very useful for designing acceptance tests with customer/user participation.</li>
+<li>The time gap between date of detection &amp; date of closure</li>
+<li>Black-box testing technique useful for testing the implementation of system requirements that specify how different combinations of conditions result in different outcomes</li>
+<li>Testing technique where informal (not pre-defined) tests are designed, executed, logged, and evaluated dynamically during test execution. The test results are used to create tests for the areas that may need more testing</li>
+<li>Type of testing is used to focus effort required during testing. It is used to decide where/when to start testing and identify areas that need more attention</li>
+<li>Tool used to establish and maintain integrity of work products (components, data and documentation) of the system through the whole life cycle</li>
+<li>Black-box testing technique used only when data is numeric or sequential</li>
+<li>divides data into partitions in such a way that all the members of a given partition are expected to be processed in the same way.</li>
+<li>is an extension of (EP) equivalence partitioning that can ONLY be used when: </li>
+</ol>
+<ul>
+<li>the partition is ordered.</li>
+<li>consisting of numeric or sequential data.</li>
+</ul>
+<ol start="10">
+<li>allows the tester to view the software in terms of its states, transitions between states, the inputs or events that trigger state changes (transitions) and the resulting actions.</li>
+<li>exercises the executable statements in the code.</li>
+<li>
+<ul>
+<li>is measured as the number of executable statements executed by the tests divided by the total number of executable statements in the test object, normally expressed as a percentage.</li>
+<li>is measured as the number of decision outcomes executed by the tests divided by the total number of decision outcomes in the test object, normally expressed as a percentage. </li>
+</ul>
+</li>
+<li>exercises the decisions in the code and tests the code that is executed based on all decision outcomes.</li>
+<li>find out the minimum number of paths which will ensure covering of all the edges.</li>
+<li>is where tests are derived from the tester’s skill and insight and their experience with similar applications and technologies.</li>
+<li>enumerate a list of possible defects and to design tests that attack these defects.</li>
+<li>is sometimes conducted using session-based testing to structure the activity within a defined time-box, based on a test charter containing test objectives.</li>
+<li>involves situations that, should they occur, may have a negative effect on a project's ability to achieve its objectives.</li>
+<li>involves the possibility that a work product may fail to satisfy the legitimate needs of its users/stakeholders.</li>
+<li>The time gap between date of detection &amp; date of closure.</li>
+<li>Life cycle which a bug goes through during its lifetime, from its discovery to fixation.</li>
+<li>find out the shortest number of paths following which all the nodes will be covered.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>usecase testing</code></li>
+<li><code>defect age</code></li>
+<li><code>decision table testing</code></li>
+<li><code>exploratory testing</code></li>
+<li><code>risk based testing</code></li>
+<li><code>configuration management</code></li>
+<li><code>boundary value analysis</code></li>
+<li><code>Equivalence partitioning</code></li>
+<li><code>Boundary value analysis (BVA)</code></li>
+<li><code>State transition testing</code></li>
+<li><code>Statement testing</code></li>
+<li><code>Coverage</code></li>
+<li><code>Decision testing</code></li>
+<li><code>Branch Coverage</code></li>
+<li><code>Experience based testing</code></li>
+<li><code>error guessing technique</code></li>
+<li><code>Exploratory testing</code></li>
+<li><code>Project risk</code></li>
+<li><code>Product risk</code></li>
+<li><code>Defect Age</code></li>
+<li><code>Bug life cycle</code></li>
+<li><code>Statement Coverage</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-identify-type-of-project-risk"><a class="header" href="#2-identify-type-of-project-risk">2. Identify Type of Project Risk</a></h2>
+<ol>
+<li>Test environment not ready on time</li>
+<li>Skill, training and staff shortages</li>
+<li>contractual issues</li>
+<li>Improper attitude such as not appreciating the value of finding
+defects during testing</li>
+<li>Low quality of the design, code, or configuration data</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>technical issues</code></li>
+<li><code>organizational factors</code></li>
+<li><code>supplier issues</code></li>
+<li><code>organizational factors</code></li>
+<li><code>technical issues</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-identify-approach-used-in-testing-tool"><a class="header" href="#3-identify-approach-used-in-testing-tool">3. identify Approach used in Testing Tool</a></h2>
+<ol>
+<li>Generic script processes action words describing the actions to be
+taken, which then calls scripts to process the associated test data</li>
+<li>Separate out the test inputs and expected results, usually into a
+spreadsheet, and uses a more generic test script that can read the
+input data and execute the same test script with different data.</li>
+<li>Enable a functional specification to be captured in the form of a
+model, such as an activity diagram. This task is generally performed
+by a system designer.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>keyword-driven testing approach</code></li>
+<li><code>data-driven testing approach</code></li>
+<li><code>model-based testing</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="4-how-to-measure-the-decision-testing-coverage"><a class="header" href="#4-how-to-measure-the-decision-testing-coverage">4. How to measure the decision testing coverage?</a></h2>
+<blockquote>
+<p><code>Coverage</code> is measured as the number of decision outcomes executed by the
+tests divided by the total number of decision outcomes in the test object</p>
+</blockquote>
+<h2 id="5-when-exploratory-testing-is-most-appropriate"><a class="header" href="#5-when-exploratory-testing-is-most-appropriate">5. When exploratory testing is most appropriate?</a></h2>
+<blockquote>
+<p>Most useful where:</p>
+<ul>
+<li>there are few or inadequate specifications</li>
+<li>severe time pressure</li>
+</ul>
+</blockquote>
+<h2 id="6-what-is-the-common-minimum-coverage-standard-for-decision-table-testing"><a class="header" href="#6-what-is-the-common-minimum-coverage-standard-for-decision-table-testing">6. What is the common minimum coverage standard for decision table testing?</a></h2>
+<blockquote>
+<p>to have at least one test case per decision rule in the table.</p>
+</blockquote>
+<h2 id="7-to-achieve-100-coverage-in-equivalence-partitioning-test-cases-must-cover-all-identified-partitions-by-using-one-value--complete"><a class="header" href="#7-to-achieve-100-coverage-in-equivalence-partitioning-test-cases-must-cover-all-identified-partitions-by-using-one-value--complete">7. To achieve 100% coverage in equivalence partitioning, test cases must cover all identified partitions by using <strong><code>(one value)</code></strong> . Complete.</a></h2>
+<h2 id="8-statement-and-decision-testing-are-most-commonly-used-at-the-component-test-level-complete"><a class="header" href="#8-statement-and-decision-testing-are-most-commonly-used-at-the-component-test-level-complete">8. Statement and decision testing are most commonly used at the <strong><code>(component)</code></strong> test level. Complete.</a></h2>
+<h2 id="9-risk-level-of-an-event-can-be-determined-based-on--likelihoodprobability-of-an-event-happening-and-impactharm-resulting-from-event--complete"><a class="header" href="#9-risk-level-of-an-event-can-be-determined-based-on--likelihoodprobability-of-an-event-happening-and-impactharm-resulting-from-event--complete">9. Risk level of an event can be determined based on <strong><code>( Likelihood/probability of an event happening)</code></strong> and <strong><code>(Impact/harm resulting from event)</code></strong> . Complete.</a></h2>
+<h2 id="10-who-is-responsible-for-testing-in-following-test-levels-operation-acceptance-unit-system-testing"><a class="header" href="#10-who-is-responsible-for-testing-in-following-test-levels-operation-acceptance-unit-system-testing">10. Who is responsible for testing in following test levels: operation acceptance/ unit/ system testing.</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>level</th><th>responsibility (done by)</th></tr></thead><tbody>
+<tr><td>component integration</td><td>developer</td></tr>
+<tr><td>system integration</td><td>independent test team</td></tr>
+<tr><td>operational acceptance</td><td>operations/systems administration staff</td></tr>
+<tr><td>user acceptance</td><td>business analyst , subject matter experts and users</td></tr>
+</tbody></table>
+</div>
+<h2 id="11-contrast-benefits-and-drawbacks-of-hiring-independent-testers"><a class="header" href="#11-contrast-benefits-and-drawbacks-of-hiring-independent-testers">11. Contrast benefits and drawbacks of hiring independent testers.</a></h2>
+<ul>
+<li>benefits
+<ul>
+<li>testers are unbiased and see other and different defects</li>
+<li>testers can verify assumptions made by people during specification and implementation of the system</li>
+</ul>
+</li>
+<li>drawbacks
+<ul>
+<li>isolation from development team</li>
+<li>developers may lose sense of responsibility for quality</li>
+<li>testers may be seen as bottleneck for release</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-resulting-product-risk-information-is-used-to-guide-test-activities-elaborate"><a class="header" href="#12-resulting-product-risk-information-is-used-to-guide-test-activities-elaborate">12. Resulting product risk information is used to guide test activities. Elaborate.</a></h2>
+<ul>
+<li>determine the test techniques to be employed.</li>
+<li>determine the extent of testing to be carried out.</li>
+<li>prioritize testing to find the critical defects as early as possible.</li>
+<li>determine whether any non-testing activities could be employed to
+reduce risk (e.g., providing training to inexperienced designers).</li>
+</ul>
+<h2 id="13-illustrate-the-bug-life-cycle-using-a-diagram"><a class="header" href="#13-illustrate-the-bug-life-cycle-using-a-diagram">13. Illustrate the bug life cycle using a diagram.</a></h2>
+<p><img src="images/bug-life-cycle.png" alt="bug lifecycle" /></p>
+<h2 id="14-identify-three-potential-risks-of-using-tools-to-support-testing"><a class="header" href="#14-identify-three-potential-risks-of-using-tools-to-support-testing">14. Identify three potential risks of using tools to support testing.</a></h2>
+<ul>
+<li>time and cost for the initial introduction of the tool</li>
+<li>vendor may provide a poor response for support, defect fixes, and upgrades</li>
+<li>may be relied on too much</li>
+<li>new technology may not be support by the tool</li>
+<li>Expectations of the tool may be unrealistic</li>
+<li>Version control of test assets may be neglected</li>
+</ul>
+<h2 id="15-after-completing-the-tool-selection-and-a-successful-proof-of-concept-evaluation-introducing-selected-tool-into-an-organization-generally-starts-with-pilot-project-why"><a class="header" href="#15-after-completing-the-tool-selection-and-a-successful-proof-of-concept-evaluation-introducing-selected-tool-into-an-organization-generally-starts-with-pilot-project-why">15. After completing the tool selection and a successful proof-of-concept evaluation, introducing selected tool into an organization generally starts with pilot project. Why?</a></h2>
+<blockquote>
+<ol>
+<li>gain knowledge about the tool</li>
+<li>evaluate how the tool fits </li>
+<li>decide ways of using</li>
+<li>Understand the metrics that you wish the tool to collect and report</li>
+</ol>
+</blockquote>
+<h2 id="16-factors-of-choosing-test-technique"><a class="header" href="#16-factors-of-choosing-test-technique">16. Factors of choosing test technique</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>type of system.</li>
+<li>type of risk.</li>
+<li>Level of risk.</li>
+<li>Customer or contractual requirements.</li>
+<li>test objective.</li>
+<li>Time and budget.</li>
+<li>knowledge of testers.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="17-identify-testing-role"><a class="header" href="#17-identify-testing-role">17. Identify testing role</a></h2>
+<ol>
+<li>Component integration testing level</li>
+<li>System integration testing level</li>
+<li>operational acceptance test level</li>
+<li>user acceptance test level</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>developers.</li>
+<li>independent test team.</li>
+<li>operations/systems administration staff.</li>
+<li>business analysts, subject matter experts, and users.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="18-potential-benefits-of-using-tools-to-support-testing"><a class="header" href="#18-potential-benefits-of-using-tools-to-support-testing">18. Potential benefits of using tools to support testing</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Reduction in repetitive Manuel work.</li>
+<li>Greater consistency and repeatability.</li>
+<li>More objective assessment.</li>
+<li>Easier access to information about testing.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="19-tool-support-for-specialized-testing"><a class="header" href="#19-tool-support-for-specialized-testing">19. Tool support for specialized testing</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Usability testing.</li>
+<li>Security testing.</li>
+<li>Accessibility testing.</li>
+<li>Localization testing.</li>
+<li>portability testing.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="20-test-execution-tools-approaches"><a class="header" href="#20-test-execution-tools-approaches">20. Test execution tools Approaches</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Data-driven testing approach.</li>
+<li>Keyword-driven testing approach.</li>
+<li>Model-based testing tools (MBT).</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="21-mention-black-box-test-case-design-techniques"><a class="header" href="#21-mention-black-box-test-case-design-techniques">21. Mention Black-box Test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Equivalence Partitioning (EP)</li>
+<li>Boundary Value Analysis (BVA)</li>
+<li>Decision Tables</li>
+<li>State Transition Testing</li>
+<li>Usecase Testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="22-mention-white-box-structure-based-test-case-design-techniques"><a class="header" href="#22-mention-white-box-structure-based-test-case-design-techniques">22. Mention White-box (Structure based) test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Statement testing</li>
+<li>Decision testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="23-mention-experience-based-test-case-design-techniques"><a class="header" href="#23-mention-experience-based-test-case-design-techniques">23. Mention Experience based test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Error guessing</li>
+<li>Exploratory testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="24-mention-tester-role"><a class="header" href="#24-mention-tester-role">24. Mention Tester role</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>prepare test data</li>
+<li>review test plan</li>
+<li>design test cases</li>
+<li>evaluate non functional characteristics</li>
+<li>design test environment</li>
+<li>execute tests</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="25-success-factor-for-tools"><a class="header" href="#25-success-factor-for-tools">25. Success factor for tools</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>introducing the tool incrementally to the organization</li>
+<li>adaption with the use of the tool</li>
+<li>provide training for the tool users</li>
+<li>Monitoring tool use</li>
+<li>provide support to the users</li>
+</ol>
+</blockquote>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="exercise_4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="exercise_6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="exercise_4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="exercise_6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

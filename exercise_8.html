@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 8 Exercises - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="exercise_1.html"><strong aria-hidden="true">1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_2.html"><strong aria-hidden="true">2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_3.html"><strong aria-hidden="true">3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_4.html"><strong aria-hidden="true">4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_5.html"><strong aria-hidden="true">5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_6.html"><strong aria-hidden="true">6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_7.html"><strong aria-hidden="true">7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_8.html" class="active"><strong aria-hidden="true">8.</strong> Lecture 8 Exercises</a></li><li class="chapter-item expanded "><a href="test_bank.html"><strong aria-hidden="true">9.</strong> Test Bank</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercise-8"><a class="header" href="#exercise-8">Exercise 8</a></h1>
+<h2 id="1-complete"><a class="header" href="#1-complete">1. complete</a></h2>
+<ol>
+<li>In test pyramid, <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> level tests are automated and created using <strong>(<code>.....</code>)</strong> tools. At <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> levels, automated tests are created using <strong>(<code>.....</code>)</strong> tools.</li>
+<li>Testing quadrants apply to <strong>(<code>.....</code>)</strong> testing only.</li>
+<li><strong>(<code>.....</code>)</strong> strategies can be used by the testers in Agile teams to help determine the acceptable number of test cases to execute.</li>
+<li>Iteration starts with iteration <strong>(<code>.....</code>)</strong> which ends in tasks on a task board. These tasks can be <strong>(<code>.....</code>)</strong> in part based on level of <strong>(<code>.....</code>)</strong> associated with them. The aim is to know which tasks should start <strong>(<code>.....</code>)</strong> and involve more <strong>(<code>.....</code>)</strong> effort.</li>
+<li>During iteration planning, team assesses each identified risk, which includes two activities: <strong>(<code>.....</code>)</strong> and determining <strong>(<code>.....</code>)</strong> based on <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong></li>
+<li>Information from the <strong>(<code>.....</code>)</strong> is used during poker planning sessions to determine priorities of items to be completed in the <strong>(<code>.....</code>)</strong></li>
+<li>The main part of the lifecycle cost often comes from <strong>(<code>.....</code>)</strong> .</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><strong>(<code>unit - integration - api based - system - acceptance - gui-based</code>)</strong></li>
+<li><strong>(<code>dynamic</code>)</strong></li>
+<li><strong>(<code>Risk identification, analysis, and risk mitigation</code>)</strong></li>
+<li><strong>(<code>planning - prioritized -quality risks - earlier - testing</code>)</strong></li>
+<li><strong>(<code>categorizing risks - its level of risk - impact - the likelihood of defects</code>)</strong></li>
+<li><strong>(<code>risk analysis - iteration</code>)</strong></li>
+<li><strong>(<code>maintenance after the product have been released</code>)</strong></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-replace-with-key-terms"><a class="header" href="#2-replace-with-key-terms">2. replace with key terms</a></h2>
+<ol>
+<li>is the first iteration of the project where many preparation activities take place.</li>
+<li>Each team member brings a different set of skills to the team. The team works together on test strategy, planning, specification, execution, evaluation, and results reporting.</li>
+<li>The team may consist only of developers, ideally there would be one or more testers.</li>
+<li>Testers sit together with the developers and the product owner.</li>
+<li>Testers collaborate with team members (stakeholders, product owner, Scrum Master).</li>
+<li>Technical decisions regarding design and testing are made by the team as a whole.</li>
+<li>The tester is committed to question and evaluate the product’s behaviour and characteristics with respect to the expectations and needs of the customers and users.</li>
+<li>Development and testing progress is visible on the Agile task board.</li>
+<li>The tester must ensure the credibility of the strategy for testing, its implementation, and execution, otherwise the stakeholders will not trust the test results.</li>
+<li>Retrospectives allow teams to learn from successes and from failures.</li>
+<li>Testing must be able to respond to change, like all other activities in Agile projects.</li>
+<li>Externally observable behaviour with user actions as input operating under certain configurations.</li>
+<li>How the system performs the specified behaviour. Referred to as quality attributes or non-functional requirements.</li>
+<li>A sequence of actions between an external actor (often a user) and the system, in order to accomplish a specific goal or business task.</li>
+<li>Activities that can only be performed in the system under certain conditions defined by outside procedures and constraints.</li>
+<li>Between system and outside world.</li>
+<li>Design and implementation constraint that will restrict the options for the developer such as embedded software respecting physical constraints such as size, weight.</li>
+<li>The customer may describe the format, data type, allowed values, and default values for a data item in the composition of a complex business data structure.</li>
+<li>communication tool allows teams to build and share an online knowledge base on tools and techniques for development and testing activities.</li>
+<li>are used to store source code and automated tests, manual tests and other test work products in same repository.</li>
+<li>Tools that generate data to populate an application’s database are very beneficial when a lot of data and combinations of data are necessary to test the application.</li>
+<li>Manual data entry is often time consuming and error prone, but data load tools are available to make the process reliable and efficient.</li>
+<li>Specific tools are available to support test-first approaches, such as BDD, TDD, ATDD.</li>
+<li>Tools capture and log activities performed on an application during an exploratory test session</li>
+<li>how many defects are found per day or per  transaction</li>
+<li>number of defects found compared to number of user stories, effort, and/or quality attributes</li>
+<li>provides the test conditions to cover during a time-boxed testing session.</li>
+<li>uninterrupted period of testing, could last from 60-120 mints</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>Sprint zero</code></li>
+<li><code>Cross functional</code></li>
+<li><code>Self organizing</code></li>
+<li><code>Co located</code></li>
+<li><code>Collaborative</code></li>
+<li><code>Empowered</code></li>
+<li><code>Committed</code></li>
+<li><code>Transparent</code></li>
+<li><code>Credible</code></li>
+<li><code>Open to feedback</code></li>
+<li><code>Resilient</code></li>
+<li><code>Functional behavior</code></li>
+<li><code>Quality characteristics</code></li>
+<li><code>Scenarios (use cases)</code></li>
+<li><code>Business rules</code></li>
+<li><code>External interfaces</code></li>
+<li><code>Constraints</code></li>
+<li><code>Constraints</code></li>
+<li><code>Wikis</code></li>
+<li><code>configuration management tools</code></li>
+<li><code>Test data preparation and generation tools</code></li>
+<li><code>Test data load tools</code></li>
+<li><code>Automated test execution tools</code></li>
+<li><code>Exploratory test tools</code></li>
+<li><code>Defect intensity</code></li>
+<li><code>Defect density</code></li>
+<li><code>test charter</code></li>
+<li><code>Session</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-mention-test-quadrants"><a class="header" href="#3-mention-test-quadrants">3. Mention Test Quadrants</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Quadrant Q1</th><th>Quadrant Q2</th><th>Quadrant Q3</th><th>Quadrant Q4</th></tr></thead><tbody>
+<tr><td>Unit level</td><td>System level</td><td>System or User acceptance level</td><td>System or Operational acceptance level</td></tr>
+<tr><td>Automated</td><td>Manual or Automated</td><td>Manual and User-Oriented</td><td>Automated</td></tr>
+<tr><td></td><td>Functional acceptance tests ex: story tests, user experience prototypes, and simulations</td><td>ex: Exploratory testing, scenarios, process flows, usability testing, user acceptance testing, alpha testing, and beta testing</td><td>Qualities tests ex: performance, load, stress, and scalability tests, security tests, maintainability, memory management, compatibility and interoperability, data migration, infrastructure, and recovery testing.</td></tr>
+</tbody></table>
+</div>
+<h2 id="4-agile-tester-skills"><a class="header" href="#4-agile-tester-skills">4. Agile Tester Skills</a></h2>
+<ol>
+<li>Competent in test automation, TDD, BDD, ATDD, white-box, black-box, experience testing.</li>
+<li>positive and solution-oriented with team members.</li>
+<li>Actively acquire information from stakeholders</li>
+<li>Accurately evaluate and report test results.</li>
+<li>Plan and organize their own work.</li>
+<li>Respond to change quickly.</li>
+<li>Collaborative.</li>
+</ol>
+<h2 id="5-agile-tester-role"><a class="header" href="#5-agile-tester-role">5. Agile Tester Role</a></h2>
+<ol>
+<li>Understanding, implementing, and updating test strategy.</li>
+<li>Measuring and reporting test coverage.</li>
+<li>Ensuring proper use of testing tools.</li>
+<li>Actively collaborating with developers and business stakeholders.</li>
+<li>Reporting defects and working with the team to resolve them.</li>
+<li>Participating in team retrospectives.</li>
+</ol>
+<h2 id="6-mention-common-estimation-testing-effort-techniques-used-in-agile-projects-based-on-content-and-risk"><a class="header" href="#6-mention-common-estimation-testing-effort-techniques-used-in-agile-projects-based-on-content-and-risk">6. Mention Common estimation testing effort techniques used in Agile projects based on content and risk</a></h2>
+<ol>
+<li>planning poker.</li>
+<li>T-shirt sizing.</li>
+</ol>
+<h2 id="7-test-sessions-include"><a class="header" href="#7-test-sessions-include">7. Test sessions include</a></h2>
+<ol>
+<li>Survey session.</li>
+<li>Analysis session.</li>
+<li>Deep coverage.</li>
+</ol>
+<h2 id="8-mention-tools-to-support-communication-and-information-sharing"><a class="header" href="#8-mention-tools-to-support-communication-and-information-sharing">8. Mention tools to support communication and information sharing</a></h2>
+<ol>
+<li>wikis.</li>
+<li>instant messaging.</li>
+<li>desktop sharing.</li>
+</ol>
+<h2 id="9-tester-role-in-scrum-projects"><a class="header" href="#9-tester-role-in-scrum-projects">9. Tester role in scrum projects</a></h2>
+<ol>
+<li>Cross-functional</li>
+<li>Self-organizing</li>
+<li>Co-located</li>
+<li>Collaborative</li>
+<li>Empowered</li>
+<li>Committed</li>
+<li>Transparent</li>
+<li>Credible</li>
+<li>Open to feedback</li>
+<li>Resilient</li>
+</ol>
+<h2 id="10-activities-of-sprint-zero"><a class="header" href="#10-activities-of-sprint-zero">10. Activities of sprint zero</a></h2>
+<ol>
+<li>Identify the scope of the project</li>
+<li>Create an initial system architecture</li>
+<li>Plan, acquire, and install needed tools</li>
+<li>Create an initial test strategy</li>
+<li>Perform an initial quality risk analysis</li>
+<li>Create the task board</li>
+</ol>
+<h2 id="11-quality-risk-analysis-during-iteration-planning"><a class="header" href="#11-quality-risk-analysis-during-iteration-planning">11. Quality Risk Analysis During Iteration Planning</a></h2>
+<ol>
+<li>Gather the Agile team members together</li>
+<li>List all the backlog items for the current iteration</li>
+<li>Identify the quality risks</li>
+<li>Assess each identified risk
+<ul>
+<li>categorizing the risk</li>
+<li>determining its level of risk</li>
+</ul>
+</li>
+<li>Determine the extent of testing</li>
+<li>Select the appropriate test technique(s) to reduce each risk</li>
+<li>The tester then designs, implements, and executes tests to mitigate the risks.</li>
+</ol>
+<h2 id="12-mention-the-topics-that-is-addressed-by-acceptance-criteria"><a class="header" href="#12-mention-the-topics-that-is-addressed-by-acceptance-criteria">12. Mention the topics that is addressed by acceptance criteria</a></h2>
+<ol>
+<li>Functional behavior</li>
+<li>Quality characteristics</li>
+<li>Scenarios</li>
+<li>Business rules</li>
+<li>External interfaces</li>
+<li>Constraints</li>
+<li>Data definitions</li>
+</ol>
+<h2 id="13-mention-uses-of-physical-storytask-boards-in-agile-teams"><a class="header" href="#13-mention-uses-of-physical-storytask-boards-in-agile-teams">13. Mention uses of physical story/task boards in agile teams</a></h2>
+<ol>
+<li>Record stories</li>
+<li>capture team members' estimates on there task and calculate efforts</li>
+<li>Provide a visual representation</li>
+<li>Integrate with configuration management tools</li>
+</ol>
+<h2 id="14-benefits-of-desktop-sharing-and-capturing-tools"><a class="header" href="#14-benefits-of-desktop-sharing-and-capturing-tools">14. Benefits of desktop sharing and capturing tools</a></h2>
+<ol>
+<li>Used for distributed teams, product demonstrations, code reviews, and even pairing.</li>
+<li>Capturing product demonstrations at the end of each iteration.</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="exercise_7.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="test_bank.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="exercise_7.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="test_bank.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 1 Exercises - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="exercise_1.html" class="active"><strong aria-hidden="true">1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_2.html"><strong aria-hidden="true">2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_3.html"><strong aria-hidden="true">3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_4.html"><strong aria-hidden="true">4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_5.html"><strong aria-hidden="true">5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_6.html"><strong aria-hidden="true">6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_7.html"><strong aria-hidden="true">7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_8.html"><strong aria-hidden="true">8.</strong> Lecture 8 Exercises</a></li><li class="chapter-item expanded "><a href="test_bank.html"><strong aria-hidden="true">9.</strong> Test Bank</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercise-1"><a class="header" href="#exercise-1">Exercise 1</a></h1>
+<h2 id="1-compare-qa-and-qc-in-respect-of-focus-and-assessment-measurestools"><a class="header" href="#1-compare-qa-and-qc-in-respect-of-focus-and-assessment-measurestools">1. Compare QA and QC in respect of focus and assessment measures/tools</a></h2>
+<div class="table-wrapper"><table><thead><tr><th></th><th>QC (repair defects)</th><th>QA (early detection)</th></tr></thead><tbody>
+<tr><td>focus</td><td>product quality at a given moment</td><td>project process (process oriented)</td></tr>
+<tr><td>character</td><td>reactive(detect issues)</td><td>preventive(block issues)</td></tr>
+<tr><td>starting point</td><td>requirement gathering</td><td>project planning</td></tr>
+<tr><td>tools and measures</td><td>testing, test metrics and reports</td><td>quality metrics, reviews and audits</td></tr>
+</tbody></table>
+</div>
+<h2 id="2-objectivity-in-process-quality-assurance-evaluations-is-critical-to-success-of-project-list-four-objective-evaluation-methods"><a class="header" href="#2-objectivity-in-process-quality-assurance-evaluations-is-critical-to-success-of-project-list-four-objective-evaluation-methods">2. Objectivity in process quality assurance evaluations is critical to success of project. List four objective evaluation methods.</a></h2>
+<ul>
+<li>independent QA organization</li>
+<li>independent reviewers</li>
+<li>standard criteria</li>
+<li>checklist</li>
+</ul>
+<h2 id="3-mention-four-benefits-of-software-quality-assurance"><a class="header" href="#3-mention-four-benefits-of-software-quality-assurance">3. Mention four benefits of software quality assurance.</a></h2>
+<ul>
+<li>sqa is a cost-effective investment</li>
+<li>increases customers trust</li>
+<li>improves the product's safety and reliability</li>
+<li>lower the expense of maintenance</li>
+<li>guards against system failure</li>
+</ul>
+<h2 id="4-explain-what-is-meant-by-pdcademing-cycle"><a class="header" href="#4-explain-what-is-meant-by-pdcademing-cycle">4. Explain what is meant by PDCA/Deming cycle.</a></h2>
+<blockquote>
+<p>well defined cycle for quality assurance</p>
+</blockquote>
+<h2 id="5-an-agile-project-using-scrum-has-many-opportunities-to-objectively-evaluate-ceremonies-and-work-products-describe-three-opportunities"><a class="header" href="#5-an-agile-project-using-scrum-has-many-opportunities-to-objectively-evaluate-ceremonies-and-work-products-describe-three-opportunities">5. An agile project using Scrum has many opportunities to objectively evaluate ceremonies and work products. Describe three opportunities.</a></h2>
+<ul>
+<li>user stories are examined</li>
+<li>scrum master coaches the team</li>
+<li>feedbacks on what was built</li>
+<li>management or peers observe Scrum ceremonies</li>
+</ul>
+<h2 id="6-process-tailoring-is-a-critical-activity-that-allows-controlled-changes-to-the-processes-due-to-the-specific-needs-of-a-project-or-a-part-of-the-organization-mention-three-reasons-for-process-tailoring"><a class="header" href="#6-process-tailoring-is-a-critical-activity-that-allows-controlled-changes-to-the-processes-due-to-the-specific-needs-of-a-project-or-a-part-of-the-organization-mention-three-reasons-for-process-tailoring">6. Process tailoring is a critical activity that allows controlled changes to the processes due to the specific needs of a project or a part of the organization. Mention three reasons for process tailoring.</a></h2>
+<ul>
+<li>Accommodating the process to a new solution</li>
+<li>Adapting the process to a new work environment</li>
+<li>Modifying the process description, so that it can be used within a given project</li>
+<li>Adding more detail to the process to address a unique solution or constraint</li>
+<li>Modifying, replacing, or reordering process elements</li>
+</ul>
+<h2 id="7-list-four-examples-of-organizational-process-assets"><a class="header" href="#7-list-four-examples-of-organizational-process-assets">7. List four examples of organizational process assets.</a></h2>
+<ul>
+<li>templates</li>
+<li>plans</li>
+<li>best practices</li>
+<li>approved methods</li>
+<li>guidelines</li>
+</ul>
+<h2 id="8-identify-three-similarities-between-qa-and-qc"><a class="header" href="#8-identify-three-similarities-between-qa-and-qc">8. Identify three similarities between QA and QC.</a></h2>
+<ul>
+<li>both are critical components of its quality management strategy.</li>
+<li>improve a company’s product manufacturing process</li>
+<li>intend to cut expenses</li>
+</ul>
+<h2 id="9-mention-three-quality-assurance-work-products"><a class="header" href="#9-mention-three-quality-assurance-work-products">9. Mention three quality assurance work products</a></h2>
+<ul>
+<li>Criteria</li>
+<li>Checklists</li>
+<li>Evaluation reports</li>
+<li>Noncompliance reports</li>
+<li>Improvement proposals</li>
+</ul>
+<h2 id="10-replace-with-key-term"><a class="header" href="#10-replace-with-key-term">10. replace with key term</a></h2>
+<ol>
+<li>Problems identified when team members do not follow applicable standards, recorded processes, or procedures</li>
+<li>Quality assurance process to develop processes to reduce defects by avoiding or correcting</li>
+<li>Proven set of global best practices that drives business performance through benchmark key capabilities</li>
+<li>Ongoing process that ensures software product meets and complies with organization's established and standardized quality specifications</li>
+<li>Tangible resources used by an organization to guide the management of its projects and operations</li>
+<li>A process-level improvement training and appraisal program</li>
+<li>Proven set of global best practices that drives business performance through building and benchmarking key capabilities</li>
+<li>refers to how effectively a software product adheres to the core design specifications based on functional standards</li>
+<li>how effectively the project satisfies non-functional standards, including security, accessibility, scalability, and reliability, all of which contribute to the proper fulfillment of the predetermined requirements</li>
+<li>defines the structures necessary to contain the processes, process assets, and connections</li>
+<li>The physical structure or framework for organizing the content</li>
+<li>Reflects how the data is organized with in the structural architecture</li>
+<li>It is critical activity that allows controlled changes to the processes</li>
+<li>focuses on satisfaction of requirement</li>
+<li>ensures that the product works as intended in its target environment</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>noncompliance issues</code></li>
+<li><code>poka-yoke</code> </li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>Software quality assurance (SQA)</code></li>
+<li><code>Process Assets</code></li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>Software function quality</code></li>
+<li><code>Software structural quality</code></li>
+<li><code>Process architecture</code></li>
+<li><code>Structure Process Architecture</code></li>
+<li><code>Content Process Architecture</code></li>
+<li><code>Process adaption/tailoring</code></li>
+<li><code>Verification</code></li>
+<li><code>Validation</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="11-define-three-areas-of-interest-of-cmmi"><a class="header" href="#11-define-three-areas-of-interest-of-cmmi">11. Define three areas of interest of CMMI</a></h2>
+<ul>
+<li>Product and service development (CMMI-DEV)</li>
+<li>Service establishment and management (CMMI-SVC)</li>
+<li>Product and service acquisition (CMMI-ACQ)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="exercise_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="exercise_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

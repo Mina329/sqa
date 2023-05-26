@@ -1,0 +1,1990 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>QA Exercises</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="exercise_1.html"><strong aria-hidden="true">1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_2.html"><strong aria-hidden="true">2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_3.html"><strong aria-hidden="true">3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_4.html"><strong aria-hidden="true">4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_5.html"><strong aria-hidden="true">5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_6.html"><strong aria-hidden="true">6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_7.html"><strong aria-hidden="true">7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="exercise_8.html"><strong aria-hidden="true">8.</strong> Lecture 8 Exercises</a></li><li class="chapter-item expanded "><a href="test_bank.html"><strong aria-hidden="true">9.</strong> Test Bank</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="exercise-1"><a class="header" href="#exercise-1">Exercise 1</a></h1>
+<h2 id="1-compare-qa-and-qc-in-respect-of-focus-and-assessment-measurestools"><a class="header" href="#1-compare-qa-and-qc-in-respect-of-focus-and-assessment-measurestools">1. Compare QA and QC in respect of focus and assessment measures/tools</a></h2>
+<div class="table-wrapper"><table><thead><tr><th></th><th>QC (repair defects)</th><th>QA (early detection)</th></tr></thead><tbody>
+<tr><td>focus</td><td>product quality at a given moment</td><td>project process (process oriented)</td></tr>
+<tr><td>character</td><td>reactive(detect issues)</td><td>preventive(block issues)</td></tr>
+<tr><td>starting point</td><td>requirement gathering</td><td>project planning</td></tr>
+<tr><td>tools and measures</td><td>testing, test metrics and reports</td><td>quality metrics, reviews and audits</td></tr>
+</tbody></table>
+</div>
+<h2 id="2-objectivity-in-process-quality-assurance-evaluations-is-critical-to-success-of-project-list-four-objective-evaluation-methods"><a class="header" href="#2-objectivity-in-process-quality-assurance-evaluations-is-critical-to-success-of-project-list-four-objective-evaluation-methods">2. Objectivity in process quality assurance evaluations is critical to success of project. List four objective evaluation methods.</a></h2>
+<ul>
+<li>independent QA organization</li>
+<li>independent reviewers</li>
+<li>standard criteria</li>
+<li>checklist</li>
+</ul>
+<h2 id="3-mention-four-benefits-of-software-quality-assurance"><a class="header" href="#3-mention-four-benefits-of-software-quality-assurance">3. Mention four benefits of software quality assurance.</a></h2>
+<ul>
+<li>sqa is a cost-effective investment</li>
+<li>increases customers trust</li>
+<li>improves the product's safety and reliability</li>
+<li>lower the expense of maintenance</li>
+<li>guards against system failure</li>
+</ul>
+<h2 id="4-explain-what-is-meant-by-pdcademing-cycle"><a class="header" href="#4-explain-what-is-meant-by-pdcademing-cycle">4. Explain what is meant by PDCA/Deming cycle.</a></h2>
+<blockquote>
+<p>well defined cycle for quality assurance</p>
+</blockquote>
+<h2 id="5-an-agile-project-using-scrum-has-many-opportunities-to-objectively-evaluate-ceremonies-and-work-products-describe-three-opportunities"><a class="header" href="#5-an-agile-project-using-scrum-has-many-opportunities-to-objectively-evaluate-ceremonies-and-work-products-describe-three-opportunities">5. An agile project using Scrum has many opportunities to objectively evaluate ceremonies and work products. Describe three opportunities.</a></h2>
+<ul>
+<li>user stories are examined</li>
+<li>scrum master coaches the team</li>
+<li>feedbacks on what was built</li>
+<li>management or peers observe Scrum ceremonies</li>
+</ul>
+<h2 id="6-process-tailoring-is-a-critical-activity-that-allows-controlled-changes-to-the-processes-due-to-the-specific-needs-of-a-project-or-a-part-of-the-organization-mention-three-reasons-for-process-tailoring"><a class="header" href="#6-process-tailoring-is-a-critical-activity-that-allows-controlled-changes-to-the-processes-due-to-the-specific-needs-of-a-project-or-a-part-of-the-organization-mention-three-reasons-for-process-tailoring">6. Process tailoring is a critical activity that allows controlled changes to the processes due to the specific needs of a project or a part of the organization. Mention three reasons for process tailoring.</a></h2>
+<ul>
+<li>Accommodating the process to a new solution</li>
+<li>Adapting the process to a new work environment</li>
+<li>Modifying the process description, so that it can be used within a given project</li>
+<li>Adding more detail to the process to address a unique solution or constraint</li>
+<li>Modifying, replacing, or reordering process elements</li>
+</ul>
+<h2 id="7-list-four-examples-of-organizational-process-assets"><a class="header" href="#7-list-four-examples-of-organizational-process-assets">7. List four examples of organizational process assets.</a></h2>
+<ul>
+<li>templates</li>
+<li>plans</li>
+<li>best practices</li>
+<li>approved methods</li>
+<li>guidelines</li>
+</ul>
+<h2 id="8-identify-three-similarities-between-qa-and-qc"><a class="header" href="#8-identify-three-similarities-between-qa-and-qc">8. Identify three similarities between QA and QC.</a></h2>
+<ul>
+<li>both are critical components of its quality management strategy.</li>
+<li>improve a company’s product manufacturing process</li>
+<li>intend to cut expenses</li>
+</ul>
+<h2 id="9-mention-three-quality-assurance-work-products"><a class="header" href="#9-mention-three-quality-assurance-work-products">9. Mention three quality assurance work products</a></h2>
+<ul>
+<li>Criteria</li>
+<li>Checklists</li>
+<li>Evaluation reports</li>
+<li>Noncompliance reports</li>
+<li>Improvement proposals</li>
+</ul>
+<h2 id="10-replace-with-key-term"><a class="header" href="#10-replace-with-key-term">10. replace with key term</a></h2>
+<ol>
+<li>Problems identified when team members do not follow applicable standards, recorded processes, or procedures</li>
+<li>Quality assurance process to develop processes to reduce defects by avoiding or correcting</li>
+<li>Proven set of global best practices that drives business performance through benchmark key capabilities</li>
+<li>Ongoing process that ensures software product meets and complies with organization's established and standardized quality specifications</li>
+<li>Tangible resources used by an organization to guide the management of its projects and operations</li>
+<li>A process-level improvement training and appraisal program</li>
+<li>Proven set of global best practices that drives business performance through building and benchmarking key capabilities</li>
+<li>refers to how effectively a software product adheres to the core design specifications based on functional standards</li>
+<li>how effectively the project satisfies non-functional standards, including security, accessibility, scalability, and reliability, all of which contribute to the proper fulfillment of the predetermined requirements</li>
+<li>defines the structures necessary to contain the processes, process assets, and connections</li>
+<li>The physical structure or framework for organizing the content</li>
+<li>Reflects how the data is organized with in the structural architecture</li>
+<li>It is critical activity that allows controlled changes to the processes</li>
+<li>focuses on satisfaction of requirement</li>
+<li>ensures that the product works as intended in its target environment</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>noncompliance issues</code></li>
+<li><code>poka-yoke</code> </li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>Software quality assurance (SQA)</code></li>
+<li><code>Process Assets</code></li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>The Capability Maturity Model Integration (CMMI)</code></li>
+<li><code>Software function quality</code></li>
+<li><code>Software structural quality</code></li>
+<li><code>Process architecture</code></li>
+<li><code>Structure Process Architecture</code></li>
+<li><code>Content Process Architecture</code></li>
+<li><code>Process adaption/tailoring</code></li>
+<li><code>Verification</code></li>
+<li><code>Validation</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="11-define-three-areas-of-interest-of-cmmi"><a class="header" href="#11-define-three-areas-of-interest-of-cmmi">11. Define three areas of interest of CMMI</a></h2>
+<ul>
+<li>Product and service development (CMMI-DEV)</li>
+<li>Service establishment and management (CMMI-SVC)</li>
+<li>Product and service acquisition (CMMI-ACQ)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-2"><a class="header" href="#exercise-2">Exercise 2</a></h1>
+<h2 id="1-the-aim-of-5-whys-root-cause-analysis-is-to-find-the-main-technical-causes-behind-the-problem"><a class="header" href="#1-the-aim-of-5-whys-root-cause-analysis-is-to-find-the-main-technical-causes-behind-the-problem">1. The aim of 5 whys root cause analysis is to find the main technical causes behind the problem</a></h2>
+<ul>
+<li>it aims to inspect a certain problem in depth until it shows you real cause</li>
+<li>often, issues that are considered a technical problem actually turn out to be human and process problems.</li>
+<li>avoid answers that are too simple / overlook important details.</li>
+<li>it is used for defects reported from a customer site</li>
+</ul>
+<h2 id="2-when-to-perform-causal-analysis-which-factors-affect-decision-of-effort-and-formality-required"><a class="header" href="#2-when-to-perform-causal-analysis-which-factors-affect-decision-of-effort-and-formality-required">2. When to perform causal analysis? Which factors affect decision of effort and formality required?</a></h2>
+<ul>
+<li><code>when</code>
+<blockquote>
+<ul>
+<li>during the task when problem or successes warrant [<code>تستدعي</code>] a causal analysis</li>
+<li>work product significantly deviates [<code>ينحرف</code>]</li>
+<li>more defects</li>
+<li>process performance exceeds expectations</li>
+<li>process does not meet its quality</li>
+</ul>
+</blockquote>
+</li>
+<li><code>factors</code>
+<blockquote>
+<ul>
+<li><strong>stakeholders</strong></li>
+<li>risks</li>
+<li>complexity</li>
+<li>frequency</li>
+<li>availability of data</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-identify-elements-of-process-improvement-proposal"><a class="header" href="#3-identify-elements-of-process-improvement-proposal">3. Identify elements of process improvement proposal.</a></h2>
+<p>for changes proven to be effective</p>
+<ul>
+<li>areas that were analyzed including their context</li>
+<li>solution selection</li>
+<li>actions achieved</li>
+<li>results achieved</li>
+</ul>
+<h2 id="4-discuss-advantages-of-pcda-approach"><a class="header" href="#4-discuss-advantages-of-pcda-approach">4. Discuss advantages of PCDA approach.</a></h2>
+<ul>
+<li>stimulate continuous improvement</li>
+<li>test possible solutions</li>
+<li>prevent from recurring mistakes</li>
+</ul>
+<h2 id="5-defining-the-problem-is-an-important-step-in-root-cause-analysis-explain-the-rule-that-should-be-followed-in-defining-the-problem"><a class="header" href="#5-defining-the-problem-is-an-important-step-in-root-cause-analysis-explain-the-rule-that-should-be-followed-in-defining-the-problem">5. Defining the problem is an important step in root cause analysis. Explain the rule that should be followed in defining the problem.</a></h2>
+<ol>
+<li>define the problem</li>
+<li>collect data</li>
+<li>identify possible causal factors</li>
+<li>identify the root cause</li>
+<li>recommend and implement solutions</li>
+</ol>
+<blockquote>
+<p>Defining the problem</p>
+<blockquote>
+<p><strong>SMART Rules</strong></p>
+<blockquote>
+<ul>
+<li><code> S -&gt; Specific</code></li>
+<li><code> M -&gt; Measurable</code></li>
+<li><code> A -&gt; Attainable</code></li>
+<li><code> R -&gt; Relevant</code></li>
+<li><code> T -&gt; Time bound</code></li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="6-describe-four-types-of-costs-of-quality"><a class="header" href="#6-describe-four-types-of-costs-of-quality">6. Describe four types of costs of quality.</a></h2>
+<ul>
+<li><code>cost of good quality</code>
+<ul>
+<li>prevention cost
+<blockquote>
+<p>prevent poor quality in products</p>
+</blockquote>
+</li>
+<li>appraisal cost
+<blockquote>
+<p>measure, inspect, evaluate products to assure conformance to quality requirements</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><code>cost of poor quality</code>
+<ul>
+<li>internal failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification before shipment to customer</p>
+</blockquote>
+</li>
+<li>external failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification after shipment to customer</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-identify-steps-of-internal-audit-process"><a class="header" href="#7-identify-steps-of-internal-audit-process">7. Identify steps of internal audit process.</a></h2>
+<ul>
+<li>planning the audit scheduling</li>
+<li>planning the process audit</li>
+<li>conducting the audit</li>
+<li>reporting the audit</li>
+<li>follow up on issue or implements found</li>
+</ul>
+<h2 id="8-explain-roles-in-raci-model"><a class="header" href="#8-explain-roles-in-raci-model">8. Explain roles in RACI model.</a></h2>
+<ul>
+<li>responsible
+<ul>
+<li>
+<blockquote>
+<p>ensure right things happen in the right time</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>accountable
+<ul>
+<li>
+<blockquote>
+<p>ensure that something gets done correctly</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>consult
+<ul>
+<li>
+<blockquote>
+<p>people who need to be consulted</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>inform
+<ul>
+<li>
+<blockquote>
+<p>need to be kept informed</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-list-three-benefits-and-limitations-of-cost-of-quality-system"><a class="header" href="#9-list-three-benefits-and-limitations-of-cost-of-quality-system">9. List three benefits and limitations of cost of quality system.</a></h2>
+<ul>
+<li><code>benefits</code>
+<blockquote>
+<ul>
+<li>higher profitability</li>
+<li>more consistent products</li>
+<li>greater customer satisfaction</li>
+<li>lower costs</li>
+<li>meeting industry standard</li>
+<li>increase staff motivation</li>
+<li>reducing waste</li>
+</ul>
+</blockquote>
+</li>
+<li><code>limitations</code>
+<blockquote>
+<ul>
+<li>measuring quality costs does not solve quality problems</li>
+<li>CoQ is merely a scoreboard for current performance</li>
+<li>inability to quantify the hidden quality costs (hidden factory)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="10-mcq"><a class="header" href="#10-mcq">10. MCQ</a></h2>
+<ol>
+<li>The outputs of the management reviews shall include decisions and actions related to all following, except:</li>
+</ol>
+<blockquote>
+<p>a. opportunities for improvement</p>
+<p>b. need for changes to quality management system</p>
+<p>c. audit results</p>
+<p>d. resource needs</p>
+</blockquote>
+<ol start="2">
+<li>Which of the following is not included in action plan?</li>
+</ol>
+<blockquote>
+<p>a. affected stakeholders</p>
+<p>c. expected cost</p>
+<p>b. schedule</p>
+<p>d. results achieved</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>c. audit results</code></li>
+<li><code>d. results achieved</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="11-replace-with-key-terms"><a class="header" href="#11-replace-with-key-terms">11. Replace with Key Term(s)</a></h2>
+<ol>
+<li>Cost incurred when a product fails to conform to quality specification before shipment to a customer.</li>
+<li>Principle that states that 80% of effects come from 20% of causes.</li>
+<li>Management meeting at planned intervals to ensure the company quality management system’s continuous suitability, adequacy and alignment with the strategic direction of the organization.</li>
+<li>Method for calculating the costs companies incur ensuring that products meet quality standards, as well as the costs of producing goods that fail to meet quality standards.</li>
+<li>Organization conduct examination at planned intervals to check if quality management system conforms to requirements of International Standard and effectively implemented &amp; maintained.</li>
+<li>Percentage of an organizations total capacity or effort that is being used to overcome the cost of poor quality.</li>
+<li>Matrix that shows how each person contributes to a project.</li>
+<li>A mechanism of analyzing the defects to identify their sources.</li>
+<li>A cycle that is useful tool can help your team solve problems such more efficiency</li>
+<li>it is the cost that are generated as a result of producing defective material</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>internal failure cost</code></li>
+<li><code>Pareto Principle</code></li>
+<li><code>management reviews</code></li>
+<li><code>cost of quality (COQ)</code></li>
+<li><code>hidden factory</code></li>
+<li><code>RACI Model/Matrix</code></li>
+<li><code>RACI Model/Matrix</code></li>
+<li><code>root cause analysis (RCA)</code></li>
+<li><code>PDCA</code></li>
+<li><code>the cost of poor quality (COPQ)</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="12-a-companys-website-redesign-would-require-design-and-development-teams-to-work-on-tasks-concurrently-each-task-would-affect-work-in-sales-marketing-finance-and-business-development-structural-changes-timelines-and-major-costs-would-require-input-and-approval-from-senior-managementneeds-can-be-easily-overlooked-and-requirements-dropped-in-such-complex-projectswhat-should-the-project-manager-create-to-avoid-missing-important-details-and-ensure-clear-communication-throughout-the-project"><a class="header" href="#12-a-companys-website-redesign-would-require-design-and-development-teams-to-work-on-tasks-concurrently-each-task-would-affect-work-in-sales-marketing-finance-and-business-development-structural-changes-timelines-and-major-costs-would-require-input-and-approval-from-senior-managementneeds-can-be-easily-overlooked-and-requirements-dropped-in-such-complex-projectswhat-should-the-project-manager-create-to-avoid-missing-important-details-and-ensure-clear-communication-throughout-the-project">12. A company’s website redesign would require design and development teams to work on tasks concurrently. Each task would affect work in sales, marketing, finance and business development. Structural changes, timelines and major costs would require input and approval from senior management.Needs can be easily overlooked and requirements dropped in such complex projects.What should the project manager create to avoid missing important details and ensure clear communication throughout the project?</a></h2>
+<blockquote>
+<p><code>RACI Matrix</code></p>
+</blockquote>
+<h2 id="13-identify-root-cause-analysis-tool"><a class="header" href="#13-identify-root-cause-analysis-tool">13. Identify root cause analysis tool</a></h2>
+<ol>
+<li>Visual representations of a relationship between two sets of data to test correlation between variables.</li>
+<li>Includes a severity occurrence and detection rating to calculate risk and determine the next steps</li>
+<li>Looking at any problem and drilling down by asking questions and avoid answers that are too simple or overlook important details.</li>
+<li>Every contributing cause and its potential effects can be shown under categories and sub-categories. </li>
+<li>Bar graph that groups the frequency distribution to show the relative significance of causes of failure. </li>
+<li>Group activity to collect different viewpoints encouraging a deeper level of critical thinking.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Scatter plots.</li>
+<li>FMEA.</li>
+<li>5 whys.</li>
+<li>Fish bone diagram. </li>
+<li>Pareto graph.</li>
+<li>Brainstorming.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="14-identify-type-of-root-cause"><a class="header" href="#14-identify-type-of-root-cause">14. Identify type of root cause</a></h2>
+<ol>
+<li>Picking the wrong person for a task.</li>
+<li>The server is not booting up.</li>
+<li>Instructions not accurately followed.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Organizational.</li>
+<li>Physical.</li>
+<li>Human.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="15-identify-pdca-phase"><a class="header" href="#15-identify-pdca-phase">15. Identify PDCA Phase</a></h2>
+<ol>
+<li>Incorporate your plan on a small scale .</li>
+<li>Identify resource needs.</li>
+<li>PDCA model becomes the new standard baseline. </li>
+<li>Audit your plan’s execution.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Do.</li>
+<li>Plan.</li>
+<li>Act.</li>
+<li>Check.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="16-mention-management-review-inputs"><a class="header" href="#16-mention-management-review-inputs">16. Mention management review inputs</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>status of action from previous reviews</li>
+<li>changes in external and internal issues</li>
+<li>information on the performance </li>
+<li>the adequacy of resources</li>
+<li>the effectiveness of actions </li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="17-mention-management-review-outputs"><a class="header" href="#17-mention-management-review-outputs">17. Mention management review outputs</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>opportunities for improvement</li>
+<li>any need for changes</li>
+<li>resource needs</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="18-action-plan"><a class="header" href="#18-action-plan">18. Action plan</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>People responsible for implementation</li>
+<li>Detailed description of the action</li>
+<li>Description of necessary tasks</li>
+<li>Description of the affected areas</li>
+<li>Affected stakeholders</li>
+<li>Schedule</li>
+<li>Cost expected</li>
+<li>Estimated cost of not addressing the issue</li>
+<li>Description of implementation actions</li>
+<li>Expected impact </li>
+<li>Identified needed pilots</li>
+</ol>
+</blockquote>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-3"><a class="header" href="#exercise-3">Exercise 3</a></h1>
+<h2 id="1-complete"><a class="header" href="#1-complete">1. complete</a></h2>
+<ol>
+<li>Static review objectives include <code>......</code>, <code>.....</code>, and <code>......</code></li>
+<li>It is very useful that test basis has measurable coverage criteria to be used as <code>......</code></li>
+<li>An element of human psychology called <code>......</code> makes it difficult to accept information that disagrees with currently held beliefs.</li>
+<li>Static testing types include <code>......</code>, <code>......</code>, <code>......</code>, and <code>......</code>.</li>
+<li>Acceptance testing of system by administration staff is usually performed in a <code>......</code></li>
+<li>Finding defects is not the main focus of <code>......</code> testing, its goal is to build confidence in the software.</li>
+<li>Maintenance testing involve planned releases and unplanned releases called <code>......</code>.</li>
+<li>Triggers for software maintenance include <code>......</code>, <code>......</code> and <code>......</code>.</li>
+<li><code>......</code> testing is used by developers of commercial off-the-shelf (COTS) software who want to get feedback from potential/existing users, customers before the software product is put on the market.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>finding defects - gaining understanding - educating participants</code></li>
+<li><code>key performance indicator (KPI)</code></li>
+<li><code>confirmation bias</code></li>
+<li><code>peer revuew - walkthrough - technical review - inspection</code></li>
+<li><code>(simulated) production environment</code></li>
+<li><code>user acceptance</code></li>
+<li><code>hot fixes</code></li>
+<li><code>modification - migration - retirement</code></li>
+<li><code>beta and alpha</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-explain-the-testing-principles-in-details"><a class="header" href="#2-explain-the-testing-principles-in-details">2. Explain the testing principles in details.</a></h2>
+<ul>
+<li>testing shows the presence of defects
+<blockquote>
+<p>testing shows that defects are present but cannot prove that there are no defects</p>
+</blockquote>
+</li>
+<li>exaustive testing is impossible
+<blockquote>
+<p>testing everything is impossible</p>
+</blockquote>
+</li>
+<li>defect clustering
+<blockquote>
+<p>smaller number of modules usually is responsible for most of the perational failures</p>
+</blockquote>
+</li>
+<li>early testing
+<blockquote>
+<p>to find defects early start testing as early as possible in SDLC</p>
+</blockquote>
+</li>
+<li>pesticide paradox
+<blockquote>
+<p>repeated tests will no longer find more defects</p>
+</blockquote>
+</li>
+<li>testing is context dependent
+<blockquote>
+<p>done differently in different contexts (safty-critical vs e-commerce system)</p>
+</blockquote>
+</li>
+<li>abasence of error fallacy
+<blockquote>
+<p>fixing defects does not help if the system built is unusable</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-identify-three-guidelines-to-successful-conduct-of-review-process"><a class="header" href="#3-identify-three-guidelines-to-successful-conduct-of-review-process">3. Identify three guidelines to successful conduct of review process.</a></h2>
+<ul>
+<li>clear predefined objectives and measurable exit criteria</li>
+<li>the right people are involved</li>
+<li>testers a valued reviewers</li>
+<li>any checklists are up to date</li>
+<li>management supports a good review process</li>
+</ul>
+<h2 id="4-clarify-the-tester-role-during-each-of-sdlc-phases-not-answered"><a class="header" href="#4-clarify-the-tester-role-during-each-of-sdlc-phases-not-answered">4. Clarify the tester role during each of SDLC phases. (<code>not answered</code>)</a></h2>
+<h2 id="5-what-should-a-tester-do-in-case-a-component-is-not-finished-and-he-needs-to-conduct-component-integration-testing"><a class="header" href="#5-what-should-a-tester-do-in-case-a-component-is-not-finished-and-he-needs-to-conduct-component-integration-testing">5. What should a tester do in case a component is not finished and he needs to conduct component integration testing?</a></h2>
+<blockquote>
+<p>Use driver</p>
+</blockquote>
+<h2 id="6-compare-between-regression-and-confirmation-testing-types"><a class="header" href="#6-compare-between-regression-and-confirmation-testing-types">6. Compare between regression and confirmation testing types.</a></h2>
+<ul>
+<li>confirmation testing
+<blockquote>
+<p>part as defect fix verification</p>
+<ul>
+<li>after the defect is detected and fixed, the software should be re-tested</li>
+</ul>
+</blockquote>
+</li>
+<li>regression testing
+<blockquote>
+<p>testing the system to check that changes have not broken previously working code</p>
+<ul>
+<li>re-run every time a change is made</li>
+<li>some fixes may preduced unintended side-effects that are called regressions</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="7-illustrate-steps-of-dynamic-testing-using-a-diagram"><a class="header" href="#7-illustrate-steps-of-dynamic-testing-using-a-diagram">7. Illustrate steps of dynamic testing using a diagram.</a></h2>
+<p><img src="images/v-model.png" alt="v model" /></p>
+<h2 id="8-specify-formal-reviewinspection-activity"><a class="header" href="#8-specify-formal-reviewinspection-activity">8. Specify Formal Review/Inspection Activity</a></h2>
+<ol>
+<li>Evaluating the review findings against the exit criteria to make a review decision </li>
+<li>Explaining the scope, objectives, process, roles, and work products to the participants </li>
+<li>Noting potential defects, recommendations, and questions </li>
+<li>Defining the entry and exit criteria</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Review meeting/issue communication and analysis</li>
+<li>Initiate review </li>
+<li>Individual preparation </li>
+<li>Planning </li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="9-whose-responsibility-in-review"><a class="header" href="#9-whose-responsibility-in-review">9. Whose Responsibility in Review?</a></h2>
+<ol>
+<li>Document all the issues, problems, and open points that were identified during the meeting. With the advent of tools to support the review process, especially logging of defects/open points/decisions, there is often no need for a scribe</li>
+<li>Decide on the execution of reviews, allocates time in project schedules and determines if the review objectives have been met</li>
+<li>Lead, plan and run the review. May mediate between the various points of view and is often the person upon whom the success of the review rests</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>scribe</li>
+<li>manager</li>
+<li>moderator/facilitator</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="10-specify-review-technique"><a class="header" href="#10-specify-review-technique">10. Specify Review Technique</a></h2>
+<ol>
+<li>Reviewers are provided with structured guidelines on how to read through the work product based on its expected usage. </li>
+<li>Reviewers detect issues based on set of questions based on potential defects, which may be derived from experience.</li>
+<li>Reviewers are provided with little or no guidance on how this task should be performed. It needs little preparation and is highly dependent on reviewer skills.</li>
+<li>Reviewers take on different stakeholder viewpoints in individual reviewing.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Scenario-based/dry run.</li>
+<li>Checklist-based.</li>
+<li>Ad hoc.</li>
+<li>Perspective-based reading.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="11-in-which-testing-level-can-defect-be-found"><a class="header" href="#11-in-which-testing-level-can-defect-be-found">11. In Which Testing Level Can Defect be Found?</a></h2>
+<ol>
+<li>Incorrect sequencing or timing of interface calls </li>
+<li>Incorrect in code logic</li>
+<li>Failure of the system to work properly in the production environment(s) </li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>Integration testing</li>
+<li>Component testing</li>
+<li>System testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="12-replace-with-key-terms"><a class="header" href="#12-replace-with-key-terms">12. Replace with Key Term(s)</a></h2>
+<ol>
+<li>Most formal review type, Led by the trained moderator, involves peers to examine the product, The defects found are documented in a logging list or issue log.</li>
+<li>Testing without having any knowledge of the interior workings of the application.</li>
+<li>is the detailed investigation of internal logic and structure of the code, also called: glass testing or open-box testing.</li>
+<li>Tests that evaluate functions that the system should perform.</li>
+<li>is the process of testing individual components in isolation.</li>
+<li>focuses on interactions and interfaces between integrated components. It is generally automated. It is often the responsibility of developers.</li>
+<li>focuses on interactions and interfaces between systems and packages. It is the responsibility of testers.</li>
+<li>a level of testing that validates the complete and fully integrated software product.</li>
+<li>is a stage in the testing process in which users provide input and advice on system testing.</li>
+<li>Users of the software test the software in a lab environment at the developer’s site.</li>
+<li>made available to users to allow them to experiment and to raise problems that they discover in their own environment.</li>
+<li>is performed against a contract’s acceptance criteria for producing custom-developed software. 
+Acceptance criteria should be defined when the parties agree to the contract.</li>
+<li>is performed against any regulations that must be adhered to, such as government, legal, or safety regulations.</li>
+<li>is the testing of “how well” the system behaves, It involves testing a software for the requirements which are non-functional in nature but important such as performance, security, scalability, etc.</li>
+<li>It is a type of retesting that is carried out by software testers as a part of defect fix verification.</li>
+<li>It is possible that a change made in one part of the code may accidentally affect the behaviour of other parts of the code, whether within the same component, in other components.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>Inspection</code></li>
+<li><code>black-box testing</code></li>
+<li><code>White-box testing</code></li>
+<li><code>functional testing</code></li>
+<li><code>Component testing</code></li>
+<li><code>Component integration Testing</code></li>
+<li><code>System integration testing</code></li>
+<li><code>system testing</code></li>
+<li><code>user acceptance testing (UAT)</code></li>
+<li><code>Alpha testing</code></li>
+<li><code>Beta testing</code></li>
+<li><code>Contractual acceptance testing</code></li>
+<li><code>Regulatory acceptance testing</code></li>
+<li><code>Non-functional testing</code></li>
+<li><code>Confirmation testing</code></li>
+<li><code>Regression testing</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-4"><a class="header" href="#exercise-4">Exercise 4</a></h1>
+<h2 id="1-identify-testing-estimation-technique"><a class="header" href="#1-identify-testing-estimation-technique">1. Identify testing estimation technique</a></h2>
+<ol>
+<li>Breaking down the test project into modules; sub-modules; functionalities; tasks and estimate effort/duration for each task.</li>
+<li>Assumes that you already tested similar applications in previous projects and collected metrics from those projects.</li>
+<li>Three types of estimations most likely/optimistic/pessimistic are calculated for each activity. </li>
+<li>Work breakdown structure is distributed to a team comprising of 3-7 members for re-estimating the tasks and final estimate is the result of the summarized estimates based on the team agreement.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>work breakdown structure WBS</code></li>
+<li><code>experience based testing</code></li>
+<li><code>PERT estimation technique</code></li>
+<li><code>wideband delphi technique</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-identify-test-strategy-type"><a class="header" href="#2-identify-test-strategy-type">2. Identify Test Strategy Type</a></h2>
+<ol>
+<li>Tests rely on making systematic use of predefined set of tests/test conditions, such as taxonomy of common types of failures, list of important quality characteristics, or company-wide look-and-feel standards.</li>
+<li>Tests are designed and implemented, and may immediately be executed in response to knowledge gained from prior test results rather than being pre-planned.</li>
+<li>Tests are designed based on some required aspect of the product, such as function, business process, internal structure, non-functional characteristic.</li>
+<li>Tests include reuse of existing test ware (especially test cases and test data) and test suites. </li>
+<li>Tests driven primarily by the advice, guidance, or instructions of stakeholders, business domain experts, or technology experts, who may be outside the test team or outside the organization itself.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>methodical</code></li>
+<li><code>reactive</code></li>
+<li><code>model-based</code></li>
+<li><code>regressive-averse</code></li>
+<li><code>directed</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-identify-testing-life-cycle-phases-and-deliverable-from-each-phase"><a class="header" href="#3-identify-testing-life-cycle-phases-and-deliverable-from-each-phase">3. Identify testing life cycle phases and deliverable from each phase.</a></h2>
+<h3 id="31-requirement-analysis"><a class="header" href="#31-requirement-analysis">3.1 requirement analysis</a></h3>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>analyzing the (SRC)</li>
+<li>prepare (RTM)</li>
+<li>prioritizing the features</li>
+<li>analyzing the automation feasibility</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>RTM</li>
+<li>automation feasibility report</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="32-test-planning"><a class="header" href="#32-test-planning">3.2 test planning</a></h3>
+<blockquote>
+<p>answers the question <code>what to test?</code></p>
+</blockquote>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>prepare test plan/strategy document</li>
+<li>test tool selection</li>
+<li>test effort estimation</li>
+<li>determine roles and responsibilities</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>test plan/strategy document</li>
+<li>effort estimation</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="33-test-case-development"><a class="header" href="#33-test-case-development">3.3 test case development</a></h3>
+<blockquote>
+<p>creation and verification of test cases</p>
+</blockquote>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>create test cases</li>
+<li>review the baseline testcases</li>
+<li>create test data</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>test cases</li>
+<li>test data</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="34-environment-setup"><a class="header" href="#34-environment-setup">3.4 environment setup</a></h3>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>prepare hardware and software</li>
+<li>setup environment</li>
+<li>perform smoke test</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>environment ready</li>
+<li>smoke test result</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="35-test-execution"><a class="header" href="#35-test-execution">3.5 test execution</a></h3>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>execute test cases</li>
+<li>document the test results</li>
+<li>map defects to test cases in RTM</li>
+<li>track defects to closure</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>completed RTM</li>
+<li>testcases updated with results</li>
+<li>defect report</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="36-test-cycle-closure"><a class="header" href="#36-test-cycle-closure">3.6 test cycle closure</a></h3>
+<blockquote>
+<p>testing team meat, discuss and analyze the artifacts</p>
+</blockquote>
+<ul>
+<li>activities
+<blockquote>
+<ul>
+<li>evaluate cycle completion criteria based on time, test coverage, cost, ...</li>
+<li>prepare test metrics</li>
+<li>prepare test closure</li>
+<li>find the defect distribution by type and severity</li>
+</ul>
+</blockquote>
+</li>
+<li>deliverables
+<blockquote>
+<ul>
+<li>test closure report</li>
+<li>test metrics</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="4-mention-three-entry-and-three-exit-criteria"><a class="header" href="#4-mention-three-entry-and-three-exit-criteria">4. Mention three entry and three exit criteria.</a></h2>
+<blockquote>
+<blockquote>
+<ul>
+<li><code>entry criteria</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>testing environment is available</li>
+<li>testable code is ready</li>
+<li>test data is ready</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>exit criteria</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>test planned have been met</li>
+<li>not high severity defects</li>
+<li>high risk area are completely tested</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="5-give-an-example-on-a-test-work-product-for-each-of-the-following-test-activities-test-planning-monitoring-analysis-design-implementation-execution-and-completion"><a class="header" href="#5-give-an-example-on-a-test-work-product-for-each-of-the-following-test-activities-test-planning-monitoring-analysis-design-implementation-execution-and-completion">5. Give an example on a test work product for each of the following test activities: test planning, monitoring, analysis, design, implementation, execution and completion.</a></h2>
+<blockquote>
+<p>slides 30 </p>
+</blockquote>
+<h2 id="6-explain-three-differences-between-test-strategy-and-test-plan"><a class="header" href="#6-explain-three-differences-between-test-strategy-and-test-plan">6. Explain three differences between test strategy and test plan.</a></h2>
+<ol>
+<li><strong>test strategy</strong>
+<blockquote>
+<p>a high level document that capture the approach on how we go about testing and achieve the goal</p>
+</blockquote>
+<ul>
+<li><code>components</code>
+<ul>
+<li>scope</li>
+<li>overview</li>
+<li>test approach</li>
+<li>testing tools</li>
+<li>standards</li>
+</ul>
+</li>
+<li>by project manager</li>
+<li>from business requirement specification (BRS)</li>
+<li>static document</li>
+<li>at organization level</li>
+</ul>
+</li>
+<li><strong>test plan</strong>
+<blockquote>
+<p>a document that contains the plan for all testing activities</p>
+</blockquote>
+<ul>
+<li><code>components</code>
+<ul>
+<li>test plan identifier</li>
+<li>features to be tested</li>
+<li>features not to be tested</li>
+<li>pass/fail criteria</li>
+<li>responsibilities</li>
+<li>staffing and training needs</li>
+</ul>
+</li>
+<li>by test lead or test manager</li>
+<li>from the oriduct description (SRS), use case documents</li>
+<li>dynamic document</li>
+<li>at project level</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-what-is-meant-by-test-procedure"><a class="header" href="#7-what-is-meant-by-test-procedure">7. What is meant by test procedure?</a></h2>
+<blockquote>
+<p>the sequence of action for a test</p>
+</blockquote>
+<h2 id="8-exercise-specify-scenario-severity-and-priority-high-priority--high-severity--low-priority--high-severity--high-priority--low-severity--low-priority--low-severity"><a class="header" href="#8-exercise-specify-scenario-severity-and-priority-high-priority--high-severity--low-priority--high-severity--high-priority--low-severity--low-priority--low-severity">8. Exercise: Specify scenario severity and priority (High Priority &amp; High Severity , Low Priority &amp; High Severity , High Priority &amp; Low Severity , Low Priority &amp; Low Severity)</a></h2>
+<ol>
+<li>Submit button is not working on a login page and customers are unable to login to the application.</li>
+<li>Crash in some functionality which is going to deliver after couple of releases.</li>
+<li>Spelling mistake of a company name on homepage.</li>
+<li>FAQ page takes a long time to load.</li>
+<li>Company logo or tagline issues.</li>
+<li>On a bank website, an error message pops up when a customer clicks on transfer money button.</li>
+<li>Font family or font size or color or spelling issue in the application or reports.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>High Priority &amp; High Severity</li>
+<li>Low Priority &amp; High Severity</li>
+<li>High Priority &amp; Low Severity</li>
+<li>Low Priority &amp; Low Severity</li>
+<li>High Priority &amp; Low Severity</li>
+<li>High Priority &amp; High Severity</li>
+<li>Low Priority &amp; Low Severity</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="9-replace-with-key-term"><a class="header" href="#9-replace-with-key-term">9. replace with key term</a></h2>
+<ol>
+<li>it is a management activity which approximates how long a task would take to complete.</li>
+<li>estimating the test effort based on metrics of former similar projects or based on typical values.</li>
+<li>estimating the test effort based on the experience of the owners of the testing tasks or by experts.</li>
+<li>it is a quantitative measure of the degree to which a system, system component, or process possesses a given attribute.</li>
+<li>minimum set of conditions that should be met (prerequisite items) before starting the software testing, used to determine when a given test activity should start.</li>
+<li>it is concerned with summarizing information about testing effort, during and at the end of test activity/level.</li>
+<li>they are the set of positive and negative executable steps of a test scenario which has a set of pre-conditions, test data, expected result, post-conditions and actual results.</li>
+<li>ensure that users can perform appropriate actions when using valid data.</li>
+<li>they are performed to try to “break” the software by performing invalid (or unacceptable) actions, or by using invalid data.</li>
+<li>state the problem as clearly as possible so that developers can replicate the defect easily and fix it.</li>
+<li>it can be defined as the impact/effect of the bug on the application. It can be Showstopper/Critical/High/Medium /Low.</li>
+<li>it can be defined as an impact of the bug on the customers business. Main focus on how soon/urgent the defect should be fixed.</li>
+<li>specifies the sequence of actions for a test, i.e. one or more Test Cases, list any initial preconditions and any activities following execution.</li>
+<li>connects requirements to test cases throughout the validation process.</li>
+<li>
+<ul>
+<li>It is a report that is created once the testing phase is successfully completed by meeting exit criteria defined for the project.</li>
+<li>document that gives a summary of all the tests conducted.</li>
+<li>gives a detailed analysis of the bugs removed and errors found.</li>
+<li>presents the list of known issues.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>Test Estimation</code></li>
+<li><code>Metrics based technique</code></li>
+<li><code>Expert based technique</code></li>
+<li><code>Metric</code></li>
+<li><code>Entry criteria</code></li>
+<li><code>Test reporting</code></li>
+<li><code>Test cases</code></li>
+<li><code>Positive test cases</code></li>
+<li><code>Negative test cases</code></li>
+<li><code>defect report</code></li>
+<li><code>Defect severity</code></li>
+<li><code>Defect priority</code></li>
+<li><code>test procedure</code></li>
+<li><code>Requirements Traceability Matrix (RTM)</code></li>
+<li><code>Test Closure Report</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="10-mention-testing-estimation-techniques"><a class="header" href="#10-mention-testing-estimation-techniques">10. Mention testing estimation techniques</a></h2>
+<ol>
+<li>PERT.</li>
+<li>WBS (work breakdown structure).</li>
+<li>wideband Delphi technique.</li>
+<li>percentage distribution.</li>
+<li>Expert-based technique.</li>
+<li>metrics-based technique.</li>
+</ol>
+<h2 id="11-mention-test-strategy-types"><a class="header" href="#11-mention-test-strategy-types">11. Mention Test strategy types</a></h2>
+<ol>
+<li>Analytical strategy.</li>
+<li>Reactive strategy.</li>
+<li>methodical strategy.</li>
+<li>model-based strategy.</li>
+<li>consultative strategy.</li>
+<li>Regression averse strategy.</li>
+<li>Process compliant strategy.</li>
+</ol>
+<h2 id="12-mention-the-content-of-test-procedure"><a class="header" href="#12-mention-the-content-of-test-procedure">12. Mention the content of test procedure</a></h2>
+<ol>
+<li>Identifier.</li>
+<li>Purpose.</li>
+<li>Special requirements.</li>
+<li>Procedure steps.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-5"><a class="header" href="#exercise-5">Exercise 5</a></h1>
+<h2 id="1-replace-with-key-terms"><a class="header" href="#1-replace-with-key-terms">1. replace with key terms</a></h2>
+<ol>
+<li>Black-box testing technique used very useful for designing acceptance tests with customer/user participation.</li>
+<li>The time gap between date of detection &amp; date of closure</li>
+<li>Black-box testing technique useful for testing the implementation of system requirements that specify how different combinations of conditions result in different outcomes</li>
+<li>Testing technique where informal (not pre-defined) tests are designed, executed, logged, and evaluated dynamically during test execution. The test results are used to create tests for the areas that may need more testing</li>
+<li>Type of testing is used to focus effort required during testing. It is used to decide where/when to start testing and identify areas that need more attention</li>
+<li>Tool used to establish and maintain integrity of work products (components, data and documentation) of the system through the whole life cycle</li>
+<li>Black-box testing technique used only when data is numeric or sequential</li>
+<li>divides data into partitions in such a way that all the members of a given partition are expected to be processed in the same way.</li>
+<li>is an extension of (EP) equivalence partitioning that can ONLY be used when: </li>
+</ol>
+<ul>
+<li>the partition is ordered.</li>
+<li>consisting of numeric or sequential data.</li>
+</ul>
+<ol start="10">
+<li>allows the tester to view the software in terms of its states, transitions between states, the inputs or events that trigger state changes (transitions) and the resulting actions.</li>
+<li>exercises the executable statements in the code.</li>
+<li>
+<ul>
+<li>is measured as the number of executable statements executed by the tests divided by the total number of executable statements in the test object, normally expressed as a percentage.</li>
+<li>is measured as the number of decision outcomes executed by the tests divided by the total number of decision outcomes in the test object, normally expressed as a percentage. </li>
+</ul>
+</li>
+<li>exercises the decisions in the code and tests the code that is executed based on all decision outcomes.</li>
+<li>find out the minimum number of paths which will ensure covering of all the edges.</li>
+<li>is where tests are derived from the tester’s skill and insight and their experience with similar applications and technologies.</li>
+<li>enumerate a list of possible defects and to design tests that attack these defects.</li>
+<li>is sometimes conducted using session-based testing to structure the activity within a defined time-box, based on a test charter containing test objectives.</li>
+<li>involves situations that, should they occur, may have a negative effect on a project's ability to achieve its objectives.</li>
+<li>involves the possibility that a work product may fail to satisfy the legitimate needs of its users/stakeholders.</li>
+<li>The time gap between date of detection &amp; date of closure.</li>
+<li>Life cycle which a bug goes through during its lifetime, from its discovery to fixation.</li>
+<li>find out the shortest number of paths following which all the nodes will be covered.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>usecase testing</code></li>
+<li><code>defect age</code></li>
+<li><code>decision table testing</code></li>
+<li><code>exploratory testing</code></li>
+<li><code>risk based testing</code></li>
+<li><code>configuration management</code></li>
+<li><code>boundary value analysis</code></li>
+<li><code>Equivalence partitioning</code></li>
+<li><code>Boundary value analysis (BVA)</code></li>
+<li><code>State transition testing</code></li>
+<li><code>Statement testing</code></li>
+<li><code>Coverage</code></li>
+<li><code>Decision testing</code></li>
+<li><code>Branch Coverage</code></li>
+<li><code>Experience based testing</code></li>
+<li><code>error guessing technique</code></li>
+<li><code>Exploratory testing</code></li>
+<li><code>Project risk</code></li>
+<li><code>Product risk</code></li>
+<li><code>Defect Age</code></li>
+<li><code>Bug life cycle</code></li>
+<li><code>Statement Coverage</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-identify-type-of-project-risk"><a class="header" href="#2-identify-type-of-project-risk">2. Identify Type of Project Risk</a></h2>
+<ol>
+<li>Test environment not ready on time</li>
+<li>Skill, training and staff shortages</li>
+<li>contractual issues</li>
+<li>Improper attitude such as not appreciating the value of finding
+defects during testing</li>
+<li>Low quality of the design, code, or configuration data</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>technical issues</code></li>
+<li><code>organizational factors</code></li>
+<li><code>supplier issues</code></li>
+<li><code>organizational factors</code></li>
+<li><code>technical issues</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-identify-approach-used-in-testing-tool"><a class="header" href="#3-identify-approach-used-in-testing-tool">3. identify Approach used in Testing Tool</a></h2>
+<ol>
+<li>Generic script processes action words describing the actions to be
+taken, which then calls scripts to process the associated test data</li>
+<li>Separate out the test inputs and expected results, usually into a
+spreadsheet, and uses a more generic test script that can read the
+input data and execute the same test script with different data.</li>
+<li>Enable a functional specification to be captured in the form of a
+model, such as an activity diagram. This task is generally performed
+by a system designer.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>keyword-driven testing approach</code></li>
+<li><code>data-driven testing approach</code></li>
+<li><code>model-based testing</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="4-how-to-measure-the-decision-testing-coverage"><a class="header" href="#4-how-to-measure-the-decision-testing-coverage">4. How to measure the decision testing coverage?</a></h2>
+<blockquote>
+<p><code>Coverage</code> is measured as the number of decision outcomes executed by the
+tests divided by the total number of decision outcomes in the test object</p>
+</blockquote>
+<h2 id="5-when-exploratory-testing-is-most-appropriate"><a class="header" href="#5-when-exploratory-testing-is-most-appropriate">5. When exploratory testing is most appropriate?</a></h2>
+<blockquote>
+<p>Most useful where:</p>
+<ul>
+<li>there are few or inadequate specifications</li>
+<li>severe time pressure</li>
+</ul>
+</blockquote>
+<h2 id="6-what-is-the-common-minimum-coverage-standard-for-decision-table-testing"><a class="header" href="#6-what-is-the-common-minimum-coverage-standard-for-decision-table-testing">6. What is the common minimum coverage standard for decision table testing?</a></h2>
+<blockquote>
+<p>to have at least one test case per decision rule in the table.</p>
+</blockquote>
+<h2 id="7-to-achieve-100-coverage-in-equivalence-partitioning-test-cases-must-cover-all-identified-partitions-by-using-one-value--complete"><a class="header" href="#7-to-achieve-100-coverage-in-equivalence-partitioning-test-cases-must-cover-all-identified-partitions-by-using-one-value--complete">7. To achieve 100% coverage in equivalence partitioning, test cases must cover all identified partitions by using <strong><code>(one value)</code></strong> . Complete.</a></h2>
+<h2 id="8-statement-and-decision-testing-are-most-commonly-used-at-the-component-test-level-complete"><a class="header" href="#8-statement-and-decision-testing-are-most-commonly-used-at-the-component-test-level-complete">8. Statement and decision testing are most commonly used at the <strong><code>(component)</code></strong> test level. Complete.</a></h2>
+<h2 id="9-risk-level-of-an-event-can-be-determined-based-on--likelihoodprobability-of-an-event-happening-and-impactharm-resulting-from-event--complete"><a class="header" href="#9-risk-level-of-an-event-can-be-determined-based-on--likelihoodprobability-of-an-event-happening-and-impactharm-resulting-from-event--complete">9. Risk level of an event can be determined based on <strong><code>( Likelihood/probability of an event happening)</code></strong> and <strong><code>(Impact/harm resulting from event)</code></strong> . Complete.</a></h2>
+<h2 id="10-who-is-responsible-for-testing-in-following-test-levels-operation-acceptance-unit-system-testing"><a class="header" href="#10-who-is-responsible-for-testing-in-following-test-levels-operation-acceptance-unit-system-testing">10. Who is responsible for testing in following test levels: operation acceptance/ unit/ system testing.</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>level</th><th>responsibility (done by)</th></tr></thead><tbody>
+<tr><td>component integration</td><td>developer</td></tr>
+<tr><td>system integration</td><td>independent test team</td></tr>
+<tr><td>operational acceptance</td><td>operations/systems administration staff</td></tr>
+<tr><td>user acceptance</td><td>business analyst , subject matter experts and users</td></tr>
+</tbody></table>
+</div>
+<h2 id="11-contrast-benefits-and-drawbacks-of-hiring-independent-testers"><a class="header" href="#11-contrast-benefits-and-drawbacks-of-hiring-independent-testers">11. Contrast benefits and drawbacks of hiring independent testers.</a></h2>
+<ul>
+<li>benefits
+<ul>
+<li>testers are unbiased and see other and different defects</li>
+<li>testers can verify assumptions made by people during specification and implementation of the system</li>
+</ul>
+</li>
+<li>drawbacks
+<ul>
+<li>isolation from development team</li>
+<li>developers may lose sense of responsibility for quality</li>
+<li>testers may be seen as bottleneck for release</li>
+</ul>
+</li>
+</ul>
+<h2 id="12-resulting-product-risk-information-is-used-to-guide-test-activities-elaborate"><a class="header" href="#12-resulting-product-risk-information-is-used-to-guide-test-activities-elaborate">12. Resulting product risk information is used to guide test activities. Elaborate.</a></h2>
+<ul>
+<li>determine the test techniques to be employed.</li>
+<li>determine the extent of testing to be carried out.</li>
+<li>prioritize testing to find the critical defects as early as possible.</li>
+<li>determine whether any non-testing activities could be employed to
+reduce risk (e.g., providing training to inexperienced designers).</li>
+</ul>
+<h2 id="13-illustrate-the-bug-life-cycle-using-a-diagram"><a class="header" href="#13-illustrate-the-bug-life-cycle-using-a-diagram">13. Illustrate the bug life cycle using a diagram.</a></h2>
+<p><img src="images/bug-life-cycle.png" alt="bug lifecycle" /></p>
+<h2 id="14-identify-three-potential-risks-of-using-tools-to-support-testing"><a class="header" href="#14-identify-three-potential-risks-of-using-tools-to-support-testing">14. Identify three potential risks of using tools to support testing.</a></h2>
+<ul>
+<li>time and cost for the initial introduction of the tool</li>
+<li>vendor may provide a poor response for support, defect fixes, and upgrades</li>
+<li>may be relied on too much</li>
+<li>new technology may not be support by the tool</li>
+<li>Expectations of the tool may be unrealistic</li>
+<li>Version control of test assets may be neglected</li>
+</ul>
+<h2 id="15-after-completing-the-tool-selection-and-a-successful-proof-of-concept-evaluation-introducing-selected-tool-into-an-organization-generally-starts-with-pilot-project-why"><a class="header" href="#15-after-completing-the-tool-selection-and-a-successful-proof-of-concept-evaluation-introducing-selected-tool-into-an-organization-generally-starts-with-pilot-project-why">15. After completing the tool selection and a successful proof-of-concept evaluation, introducing selected tool into an organization generally starts with pilot project. Why?</a></h2>
+<blockquote>
+<ol>
+<li>gain knowledge about the tool</li>
+<li>evaluate how the tool fits </li>
+<li>decide ways of using</li>
+<li>Understand the metrics that you wish the tool to collect and report</li>
+</ol>
+</blockquote>
+<h2 id="16-factors-of-choosing-test-technique"><a class="header" href="#16-factors-of-choosing-test-technique">16. Factors of choosing test technique</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>type of system.</li>
+<li>type of risk.</li>
+<li>Level of risk.</li>
+<li>Customer or contractual requirements.</li>
+<li>test objective.</li>
+<li>Time and budget.</li>
+<li>knowledge of testers.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="17-identify-testing-role"><a class="header" href="#17-identify-testing-role">17. Identify testing role</a></h2>
+<ol>
+<li>Component integration testing level</li>
+<li>System integration testing level</li>
+<li>operational acceptance test level</li>
+<li>user acceptance test level</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li>developers.</li>
+<li>independent test team.</li>
+<li>operations/systems administration staff.</li>
+<li>business analysts, subject matter experts, and users.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="18-potential-benefits-of-using-tools-to-support-testing"><a class="header" href="#18-potential-benefits-of-using-tools-to-support-testing">18. Potential benefits of using tools to support testing</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Reduction in repetitive Manuel work.</li>
+<li>Greater consistency and repeatability.</li>
+<li>More objective assessment.</li>
+<li>Easier access to information about testing.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="19-tool-support-for-specialized-testing"><a class="header" href="#19-tool-support-for-specialized-testing">19. Tool support for specialized testing</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Usability testing.</li>
+<li>Security testing.</li>
+<li>Accessibility testing.</li>
+<li>Localization testing.</li>
+<li>portability testing.</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="20-test-execution-tools-approaches"><a class="header" href="#20-test-execution-tools-approaches">20. Test execution tools Approaches</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Data-driven testing approach.</li>
+<li>Keyword-driven testing approach.</li>
+<li>Model-based testing tools (MBT).</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="21-mention-black-box-test-case-design-techniques"><a class="header" href="#21-mention-black-box-test-case-design-techniques">21. Mention Black-box Test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Equivalence Partitioning (EP)</li>
+<li>Boundary Value Analysis (BVA)</li>
+<li>Decision Tables</li>
+<li>State Transition Testing</li>
+<li>Usecase Testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="22-mention-white-box-structure-based-test-case-design-techniques"><a class="header" href="#22-mention-white-box-structure-based-test-case-design-techniques">22. Mention White-box (Structure based) test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Statement testing</li>
+<li>Decision testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="23-mention-experience-based-test-case-design-techniques"><a class="header" href="#23-mention-experience-based-test-case-design-techniques">23. Mention Experience based test case design techniques</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>Error guessing</li>
+<li>Exploratory testing</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="24-mention-tester-role"><a class="header" href="#24-mention-tester-role">24. Mention Tester role</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>prepare test data</li>
+<li>review test plan</li>
+<li>design test cases</li>
+<li>evaluate non functional characteristics</li>
+<li>design test environment</li>
+<li>execute tests</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="25-success-factor-for-tools"><a class="header" href="#25-success-factor-for-tools">25. Success factor for tools</a></h2>
+<blockquote>
+<blockquote>
+<ol>
+<li>introducing the tool incrementally to the organization</li>
+<li>adaption with the use of the tool</li>
+<li>provide training for the tool users</li>
+<li>Monitoring tool use</li>
+<li>provide support to the users</li>
+</ol>
+</blockquote>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-6"><a class="header" href="#exercise-6">Exercise 6</a></h1>
+<h2 id="1-complete-1"><a class="header" href="#1-complete-1">1. complete</a></h2>
+<ol>
+<li>The <strong>(<code>.....</code>)</strong> is responsible for quality in Agile projects.</li>
+<li>XP teams use <strong>(<code>.....</code>)</strong> time to pay down <strong>(<code>.....</code>)</strong> by refactoring code or do research.</li>
+<li>A cross-functional team in XP releases <strong>(<code>.....</code>)</strong> frequently.</li>
+<li>Agile projects have short iterations; thus, project team receives <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> feedback on product quality throughout SDLC.</li>
+<li>The general objective of <strong>(<code>.....</code>)</strong> is to visualize and optimize the flow of work within a value- added chain.</li>
+<li>One programmer plays <strong>(<code>.....</code>)</strong> role and focuses on clean code, and compiles and runs. Second one plays role of <strong>(<code>.....</code>)</strong> and focuses on the big picture and reviews code for improvement or refactoring.</li>
+<li>There are 2 levels of plans in XP: <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> In both levels, there are 3 steps: <strong>(<code>.....</code>)</strong></li>
+<li>User stories must address <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> characteristics. Each story includes <strong>(<code>.....</code>)</strong> for these characteristics used to decide when a task is <strong>(<code>.....</code>)</strong></li>
+<li>All team members, testers and non-testers, can <strong>(<code>.....</code>)</strong> on both testing and non-testing activities.</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><strong>(<code>whole team</code>)</strong></li>
+<li><strong>(<code>slack time - technical debats</code>)</strong></li>
+<li><strong>(<code>Minimum Viable Product (MVP)</code>)</strong></li>
+<li><strong>(<code>early - continuous</code>)</strong> </li>
+<li><strong>(<code>kanban</code>)</strong></li>
+<li><strong>(<code>pilot - navigator</code>)</strong></li>
+<li><strong>(<code>release planning - iteration planning - exploration, commitment, and steering</code>)</strong></li>
+<li><strong>(<code>functional - non-functional - acceptance criteria - finished</code>)</strong></li>
+<li><strong>(<code>provide input</code>)</strong></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-replace-with-key-terms"><a class="header" href="#2-replace-with-key-terms">2. replace with key terms</a></h2>
+<ol>
+<li>the team and stakeholders collaboratively decide what are the requirements and features that can be delivered into production and when.</li>
+<li>the team will pick up the most valuable items from the list and break them down into tasks then estimates and a commitment to delivering at the end of the iteration.</li>
+<li>a naming conversion practice used in design and code to have a shared understanding between teams.</li>
+<li>management approach used in situations where work arrives in an unpredictable fashion.</li>
+<li>The value chain to be managed is visualized by a Kanban board. Each column shows a station. The items to be produced or tasks to be processed are symbolized by tickets.</li>
+<li>The amount of parallel active tasks is strictly limited. This is controlled by the maximum number of tickets allowed for a station and/or globally for the board.</li>
+<li>is the time between a request being made and a task being released.</li>
+<li>is calculating the actual work-in-progress time.</li>
+<li>is the agile form of requirements specifications explain how the system should behave with respect to a single, coherent feature or function.</li>
+<li>Larger collections of related features, or a collection of sub-features that make up a single complex feature.</li>
+<li>Collaborative authorship of the user story can use techniques such as brainstorming and mind mapping.</li>
+<li>is a meeting held at the end of each iteration to discuss what was successful, what could be improved, and how to incorporate the improvements and retain the successes in future iterations.</li>
+<li>XP teams conduct a small test or proof of concept workout</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>release planning</code></li>
+<li><code>Iteration planning</code></li>
+<li><code>System metaphor</code></li>
+<li><code>Kanban</code></li>
+<li><code>Kanban Board</code></li>
+<li><code>Work in Progress (WIP) Limit</code></li>
+<li><code>Kanban lead time</code></li>
+<li><code>Kanban cycle time</code></li>
+<li><code>User story</code></li>
+<li><code>Epics</code></li>
+<li><code>INVEST technique</code></li>
+<li><code>Retrospective</code></li>
+<li><code>Spike</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-mention-aspects-of-agile-approaches"><a class="header" href="#3-mention-aspects-of-agile-approaches">3. Mention Aspects of agile approaches</a></h2>
+<ol>
+<li>Agile approaches.</li>
+<li>Collaborative user story creation.</li>
+<li>Retrospectives.</li>
+<li>Continues integration.</li>
+<li>Release and iteration planning.</li>
+</ol>
+<h2 id="4-mention-agile-software-development-approaches"><a class="header" href="#4-mention-agile-software-development-approaches">4. Mention agile software development approaches</a></h2>
+<ol>
+<li>Extreme programming (XP).</li>
+<li>Scrum.</li>
+<li>Kanban.</li>
+</ol>
+<h2 id="5-mention-xp-values"><a class="header" href="#5-mention-xp-values">5. Mention XP Values</a></h2>
+<ol>
+<li>Communication.</li>
+<li>feedback.</li>
+<li>Simplicity.</li>
+<li>Courage.</li>
+<li>respect.</li>
+</ol>
+<h2 id="6-identify-main-planning-process-in-xp-practices"><a class="header" href="#6-identify-main-planning-process-in-xp-practices">6. Identify Main planning process in XP practices</a></h2>
+<ul>
+<li>Have 2 levels:
+<ol>
+<li>release planning.</li>
+<li>iteration planning.</li>
+</ol>
+</li>
+<li>Each level have 3 steps:
+<ol>
+<li>Exploration.</li>
+<li>commitment.</li>
+<li>steering.</li>
+</ol>
+</li>
+</ul>
+<h2 id="7-compare-between-scrum-and-kanban"><a class="header" href="#7-compare-between-scrum-and-kanban">7. Compare between Scrum and Kanban</a></h2>
+<p><img src="images/scrum-kanban.PNG" alt="scrum&amp;kanban" /></p>
+<h2 id="8-explain-invest"><a class="header" href="#8-explain-invest">8. Explain INVEST</a></h2>
+<ul>
+<li>I -&gt; Independent</li>
+<li>N -&gt; Negotiation</li>
+<li>V -&gt; Value</li>
+<li>E -&gt; Estimable</li>
+<li>S -&gt; Small</li>
+<li>T -&gt; Testable</li>
+</ul>
+<h2 id="9-explain-3cs-concepts"><a class="header" href="#9-explain-3cs-concepts">9. Explain 3cs concepts</a></h2>
+<ol>
+<li>Card : the physical media describing a user story.</li>
+<li>Conversation : explains how the software will be used.</li>
+<li>Confirmation : The acceptance criteria.</li>
+</ol>
+<h2 id="10-mention-benefits-of-early-and-frequent-feedback"><a class="header" href="#10-mention-benefits-of-early-and-frequent-feedback">10. Mention benefits of early and frequent feedback</a></h2>
+<ol>
+<li>avoiding requirements misunderstandings</li>
+<li>clarifying customer feature requests</li>
+<li>discovering and resolving quality problems early</li>
+<li>providing information to agile team regrading its productivity</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-7"><a class="header" href="#exercise-7">Exercise 7</a></h1>
+<h2 id="1-complete-2"><a class="header" href="#1-complete-2">1. complete</a></h2>
+<ol>
+<li>When the regression testing is automated, the Agile testers are freed to concentrate their manual testing on <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> testing of defect fixes.</li>
+<li>In agile projects, no feature is considered done until it has been <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> with the system.</li>
+<li><strong>(<code>.....</code>)</strong> iterations occur periodically to resolve any remaining defects and other forms of <strong>(<code>.....</code>)</strong></li>
+<li>Because of the heavy use of test automation, a higher percentage of the manual testing on Agile projects tends to be done using <strong>(<code>.....</code>)</strong> testing.</li>
+<li>While developers will focus on creating unit tests, testers should focus on creating automated <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> tests.</li>
+<li>Changes to existing features have testing implications, especially <strong>(<code>.....</code>)</strong> testing implications.</li>
+<li>During an iteration, any given user story will typically progress sequentially through the following test activities: <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> .</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><strong><code>new feature implemented - confirmation</code></strong></li>
+<li><strong><code>integrated - tested</code></strong></li>
+<li><strong><code>stabilization - technical debt</code></strong></li>
+<li><strong><code>experienced based testing</code></strong></li>
+<li><strong><code>integration, system - system integration</code></strong></li>
+<li><strong><code>regression</code></strong></li>
+<li><strong><code>unit testing - feature acceptance testing</code></strong></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-replace-with-key-terms-1"><a class="header" href="#2-replace-with-key-terms-1">2. replace with key terms</a></h2>
+<ol>
+<li>occur periodically to resolve any remaining defects and other forms of technical debt.</li>
+<li>address defects remaining from the previous iteration at the beginning of the next iteration, as part of the backlog for that iteration.</li>
+<li>is functional/feature testing of expected behaviors of an application as a whole.</li>
+<li>involves cooperative stakeholders using plain language to write acceptance tests based on the shared understanding of user story requirements.</li>
+<li>compare expected output with actual , mechanism that determines whether software executed correctly for a test case</li>
+<li>A chart used to track progress across the entire release and within each iteration</li>
+<li>lines of code added, modified, or deleted from one version to another </li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>Stabilization iterations</code></li>
+<li><code>fix bugs first</code></li>
+<li><code>Behavior-driven development (BDD)</code></li>
+<li><code>Acceptance test-driven development (ATDD)</code></li>
+<li><code>Test oracle</code></li>
+<li><code>Burndown charts</code></li>
+<li><code>code churn</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-automated-activities-of-continuous-integration-process"><a class="header" href="#3-automated-activities-of-continuous-integration-process">3. Automated activities of Continuous integration process</a></h2>
+<ol>
+<li>Static code and analysis.</li>
+<li>Compile.</li>
+<li>Unit test.</li>
+<li>deploy.</li>
+<li>integration test.</li>
+<li>Report.</li>
+</ol>
+<h2 id="4-continuous-integration-challenges"><a class="header" href="#4-continuous-integration-challenges">4. Continuous Integration Challenges</a></h2>
+<ol>
+<li>CI tools have to be introduced and maintained.</li>
+<li>CI process must be defined and established.</li>
+<li>Test automation requires additional resources and can be complex to establish.</li>
+<li>Thorough test coverage is essential to achieve automated testing advantages.</li>
+<li>Teams sometimes over-rely on unit tests and perform too little systems and acceptance testing.</li>
+</ol>
+<h2 id="5-test-activities-during-iteration"><a class="header" href="#5-test-activities-during-iteration">5. Test Activities During Iteration</a></h2>
+<ol>
+<li>Unit testing.</li>
+<li>Feature acceptance testing:
+<ul>
+<li>Feature verification testing.</li>
+<li>Feature validation testing.</li>
+</ul>
+</li>
+<li>Regression testing (parallel through iteration).</li>
+<li>System test level.</li>
+</ol>
+<h2 id="6-categories-of-project-work-products-of-interest-to-agile-testers"><a class="header" href="#6-categories-of-project-work-products-of-interest-to-agile-testers">6. Categories of “project work products” of interest to Agile testers</a></h2>
+<ol>
+<li>Business-oriented work product.</li>
+<li>Development work product.</li>
+<li>Test work product.</li>
+</ol>
+<h2 id="7-organizational-options-for-independent-testing"><a class="header" href="#7-organizational-options-for-independent-testing">7. Organizational Options for Independent Testing</a></h2>
+<ol>
+<li>embedded tester(s) within the team
+<ul>
+<li>risk of loss of independence and loss of objective evaluation</li>
+</ul>
+</li>
+<li>fully independent separate test team during the final days of each sprint
+<ul>
+<li>provide unbiased evaluation</li>
+<li>time pressures, lack of understanding lead to problems with this approach</li>
+</ul>
+</li>
+<li>independent separate test team assigned to agile team on al long-term basis at the beginning of the project</li>
+</ol>
+<h2 id="8-agile-testing-techniques"><a class="header" href="#8-agile-testing-techniques">8. Agile Testing Techniques</a></h2>
+<ol>
+<li>Test-driven development (TDD).</li>
+<li>Acceptance test-driven development (ATDD).</li>
+<li>Behavior-driven development (BDD).</li>
+</ol>
+<h2 id="9-tdd-process"><a class="header" href="#9-tdd-process">9. TDD process</a></h2>
+<ol>
+<li>Add test.</li>
+<li>watch test fail.</li>
+<li>write code.</li>
+<li>run test.</li>
+<li>refactor.</li>
+</ol>
+<h2 id="10-tdd-benefits"><a class="header" href="#10-tdd-benefits">10. TDD benefits</a></h2>
+<ol>
+<li>Code coverage.</li>
+<li>regression testing.</li>
+<li>simplifying debugging.</li>
+<li>system documentation.</li>
+</ol>
+<h2 id="11-bdd-format"><a class="header" href="#11-bdd-format">11. BDD format</a></h2>
+<ol>
+<li>Given (context)</li>
+<li>When (the action the user performs)</li>
+<li>Then (expected outcome)</li>
+</ol>
+<h2 id="12-compare-between-tdd--bdd--atdd"><a class="header" href="#12-compare-between-tdd--bdd--atdd">12. Compare between TDD &amp; BDD &amp; ATDD</a></h2>
+<p><img src="images/tdd-bdd-atdd.PNG" alt="tdd-bdd-atdd" /></p>
+<h2 id="13-mention-agile-principle"><a class="header" href="#13-mention-agile-principle">13. Mention Agile principle</a></h2>
+<ol>
+<li>Stabilization iterations</li>
+<li>fix bugs first</li>
+<li>Pairing</li>
+<li>Test automation at all levels</li>
+<li>Developers focus on creating unit tests</li>
+<li>Testers should focus on creating automated tests</li>
+<li>Lightweight work product documentation</li>
+</ol>
+<h2 id="13-benefits-of-automated-tests"><a class="header" href="#13-benefits-of-automated-tests">13. benefits of automated tests</a></h2>
+<ul>
+<li>provide rapid feedback on product quality</li>
+<li>provide a living document of system functionality</li>
+<li>automated unit test provide feedback on build quality but not on product quality.
+8</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="exercise-8"><a class="header" href="#exercise-8">Exercise 8</a></h1>
+<h2 id="1-complete-3"><a class="header" href="#1-complete-3">1. complete</a></h2>
+<ol>
+<li>In test pyramid, <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> level tests are automated and created using <strong>(<code>.....</code>)</strong> tools. At <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong> levels, automated tests are created using <strong>(<code>.....</code>)</strong> tools.</li>
+<li>Testing quadrants apply to <strong>(<code>.....</code>)</strong> testing only.</li>
+<li><strong>(<code>.....</code>)</strong> strategies can be used by the testers in Agile teams to help determine the acceptable number of test cases to execute.</li>
+<li>Iteration starts with iteration <strong>(<code>.....</code>)</strong> which ends in tasks on a task board. These tasks can be <strong>(<code>.....</code>)</strong> in part based on level of <strong>(<code>.....</code>)</strong> associated with them. The aim is to know which tasks should start <strong>(<code>.....</code>)</strong> and involve more <strong>(<code>.....</code>)</strong> effort.</li>
+<li>During iteration planning, team assesses each identified risk, which includes two activities: <strong>(<code>.....</code>)</strong> and determining <strong>(<code>.....</code>)</strong> based on <strong>(<code>.....</code>)</strong> and <strong>(<code>.....</code>)</strong></li>
+<li>Information from the <strong>(<code>.....</code>)</strong> is used during poker planning sessions to determine priorities of items to be completed in the <strong>(<code>.....</code>)</strong></li>
+<li>The main part of the lifecycle cost often comes from <strong>(<code>.....</code>)</strong> .</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><strong>(<code>unit - integration - api based - system - acceptance - gui-based</code>)</strong></li>
+<li><strong>(<code>dynamic</code>)</strong></li>
+<li><strong>(<code>Risk identification, analysis, and risk mitigation</code>)</strong></li>
+<li><strong>(<code>planning - prioritized -quality risks - earlier - testing</code>)</strong></li>
+<li><strong>(<code>categorizing risks - its level of risk - impact - the likelihood of defects</code>)</strong></li>
+<li><strong>(<code>risk analysis - iteration</code>)</strong></li>
+<li><strong>(<code>maintenance after the product have been released</code>)</strong></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="2-replace-with-key-terms-2"><a class="header" href="#2-replace-with-key-terms-2">2. replace with key terms</a></h2>
+<ol>
+<li>is the first iteration of the project where many preparation activities take place.</li>
+<li>Each team member brings a different set of skills to the team. The team works together on test strategy, planning, specification, execution, evaluation, and results reporting.</li>
+<li>The team may consist only of developers, ideally there would be one or more testers.</li>
+<li>Testers sit together with the developers and the product owner.</li>
+<li>Testers collaborate with team members (stakeholders, product owner, Scrum Master).</li>
+<li>Technical decisions regarding design and testing are made by the team as a whole.</li>
+<li>The tester is committed to question and evaluate the product’s behaviour and characteristics with respect to the expectations and needs of the customers and users.</li>
+<li>Development and testing progress is visible on the Agile task board.</li>
+<li>The tester must ensure the credibility of the strategy for testing, its implementation, and execution, otherwise the stakeholders will not trust the test results.</li>
+<li>Retrospectives allow teams to learn from successes and from failures.</li>
+<li>Testing must be able to respond to change, like all other activities in Agile projects.</li>
+<li>Externally observable behaviour with user actions as input operating under certain configurations.</li>
+<li>How the system performs the specified behaviour. Referred to as quality attributes or non-functional requirements.</li>
+<li>A sequence of actions between an external actor (often a user) and the system, in order to accomplish a specific goal or business task.</li>
+<li>Activities that can only be performed in the system under certain conditions defined by outside procedures and constraints.</li>
+<li>Between system and outside world.</li>
+<li>Design and implementation constraint that will restrict the options for the developer such as embedded software respecting physical constraints such as size, weight.</li>
+<li>The customer may describe the format, data type, allowed values, and default values for a data item in the composition of a complex business data structure.</li>
+<li>communication tool allows teams to build and share an online knowledge base on tools and techniques for development and testing activities.</li>
+<li>are used to store source code and automated tests, manual tests and other test work products in same repository.</li>
+<li>Tools that generate data to populate an application’s database are very beneficial when a lot of data and combinations of data are necessary to test the application.</li>
+<li>Manual data entry is often time consuming and error prone, but data load tools are available to make the process reliable and efficient.</li>
+<li>Specific tools are available to support test-first approaches, such as BDD, TDD, ATDD.</li>
+<li>Tools capture and log activities performed on an application during an exploratory test session</li>
+<li>how many defects are found per day or per  transaction</li>
+<li>number of defects found compared to number of user stories, effort, and/or quality attributes</li>
+<li>provides the test conditions to cover during a time-boxed testing session.</li>
+<li>uninterrupted period of testing, could last from 60-120 mints</li>
+</ol>
+<blockquote>
+<blockquote>
+<ol>
+<li><code>Sprint zero</code></li>
+<li><code>Cross functional</code></li>
+<li><code>Self organizing</code></li>
+<li><code>Co located</code></li>
+<li><code>Collaborative</code></li>
+<li><code>Empowered</code></li>
+<li><code>Committed</code></li>
+<li><code>Transparent</code></li>
+<li><code>Credible</code></li>
+<li><code>Open to feedback</code></li>
+<li><code>Resilient</code></li>
+<li><code>Functional behavior</code></li>
+<li><code>Quality characteristics</code></li>
+<li><code>Scenarios (use cases)</code></li>
+<li><code>Business rules</code></li>
+<li><code>External interfaces</code></li>
+<li><code>Constraints</code></li>
+<li><code>Constraints</code></li>
+<li><code>Wikis</code></li>
+<li><code>configuration management tools</code></li>
+<li><code>Test data preparation and generation tools</code></li>
+<li><code>Test data load tools</code></li>
+<li><code>Automated test execution tools</code></li>
+<li><code>Exploratory test tools</code></li>
+<li><code>Defect intensity</code></li>
+<li><code>Defect density</code></li>
+<li><code>test charter</code></li>
+<li><code>Session</code></li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="3-mention-test-quadrants"><a class="header" href="#3-mention-test-quadrants">3. Mention Test Quadrants</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Quadrant Q1</th><th>Quadrant Q2</th><th>Quadrant Q3</th><th>Quadrant Q4</th></tr></thead><tbody>
+<tr><td>Unit level</td><td>System level</td><td>System or User acceptance level</td><td>System or Operational acceptance level</td></tr>
+<tr><td>Automated</td><td>Manual or Automated</td><td>Manual and User-Oriented</td><td>Automated</td></tr>
+<tr><td></td><td>Functional acceptance tests ex: story tests, user experience prototypes, and simulations</td><td>ex: Exploratory testing, scenarios, process flows, usability testing, user acceptance testing, alpha testing, and beta testing</td><td>Qualities tests ex: performance, load, stress, and scalability tests, security tests, maintainability, memory management, compatibility and interoperability, data migration, infrastructure, and recovery testing.</td></tr>
+</tbody></table>
+</div>
+<h2 id="4-agile-tester-skills"><a class="header" href="#4-agile-tester-skills">4. Agile Tester Skills</a></h2>
+<ol>
+<li>Competent in test automation, TDD, BDD, ATDD, white-box, black-box, experience testing.</li>
+<li>positive and solution-oriented with team members.</li>
+<li>Actively acquire information from stakeholders</li>
+<li>Accurately evaluate and report test results.</li>
+<li>Plan and organize their own work.</li>
+<li>Respond to change quickly.</li>
+<li>Collaborative.</li>
+</ol>
+<h2 id="5-agile-tester-role"><a class="header" href="#5-agile-tester-role">5. Agile Tester Role</a></h2>
+<ol>
+<li>Understanding, implementing, and updating test strategy.</li>
+<li>Measuring and reporting test coverage.</li>
+<li>Ensuring proper use of testing tools.</li>
+<li>Actively collaborating with developers and business stakeholders.</li>
+<li>Reporting defects and working with the team to resolve them.</li>
+<li>Participating in team retrospectives.</li>
+</ol>
+<h2 id="6-mention-common-estimation-testing-effort-techniques-used-in-agile-projects-based-on-content-and-risk"><a class="header" href="#6-mention-common-estimation-testing-effort-techniques-used-in-agile-projects-based-on-content-and-risk">6. Mention Common estimation testing effort techniques used in Agile projects based on content and risk</a></h2>
+<ol>
+<li>planning poker.</li>
+<li>T-shirt sizing.</li>
+</ol>
+<h2 id="7-test-sessions-include"><a class="header" href="#7-test-sessions-include">7. Test sessions include</a></h2>
+<ol>
+<li>Survey session.</li>
+<li>Analysis session.</li>
+<li>Deep coverage.</li>
+</ol>
+<h2 id="8-mention-tools-to-support-communication-and-information-sharing"><a class="header" href="#8-mention-tools-to-support-communication-and-information-sharing">8. Mention tools to support communication and information sharing</a></h2>
+<ol>
+<li>wikis.</li>
+<li>instant messaging.</li>
+<li>desktop sharing.</li>
+</ol>
+<h2 id="9-tester-role-in-scrum-projects"><a class="header" href="#9-tester-role-in-scrum-projects">9. Tester role in scrum projects</a></h2>
+<ol>
+<li>Cross-functional</li>
+<li>Self-organizing</li>
+<li>Co-located</li>
+<li>Collaborative</li>
+<li>Empowered</li>
+<li>Committed</li>
+<li>Transparent</li>
+<li>Credible</li>
+<li>Open to feedback</li>
+<li>Resilient</li>
+</ol>
+<h2 id="10-activities-of-sprint-zero"><a class="header" href="#10-activities-of-sprint-zero">10. Activities of sprint zero</a></h2>
+<ol>
+<li>Identify the scope of the project</li>
+<li>Create an initial system architecture</li>
+<li>Plan, acquire, and install needed tools</li>
+<li>Create an initial test strategy</li>
+<li>Perform an initial quality risk analysis</li>
+<li>Create the task board</li>
+</ol>
+<h2 id="11-quality-risk-analysis-during-iteration-planning"><a class="header" href="#11-quality-risk-analysis-during-iteration-planning">11. Quality Risk Analysis During Iteration Planning</a></h2>
+<ol>
+<li>Gather the Agile team members together</li>
+<li>List all the backlog items for the current iteration</li>
+<li>Identify the quality risks</li>
+<li>Assess each identified risk
+<ul>
+<li>categorizing the risk</li>
+<li>determining its level of risk</li>
+</ul>
+</li>
+<li>Determine the extent of testing</li>
+<li>Select the appropriate test technique(s) to reduce each risk</li>
+<li>The tester then designs, implements, and executes tests to mitigate the risks.</li>
+</ol>
+<h2 id="12-mention-the-topics-that-is-addressed-by-acceptance-criteria"><a class="header" href="#12-mention-the-topics-that-is-addressed-by-acceptance-criteria">12. Mention the topics that is addressed by acceptance criteria</a></h2>
+<ol>
+<li>Functional behavior</li>
+<li>Quality characteristics</li>
+<li>Scenarios</li>
+<li>Business rules</li>
+<li>External interfaces</li>
+<li>Constraints</li>
+<li>Data definitions</li>
+</ol>
+<h2 id="13-mention-uses-of-physical-storytask-boards-in-agile-teams"><a class="header" href="#13-mention-uses-of-physical-storytask-boards-in-agile-teams">13. Mention uses of physical story/task boards in agile teams</a></h2>
+<ol>
+<li>Record stories</li>
+<li>capture team members' estimates on there task and calculate efforts</li>
+<li>Provide a visual representation</li>
+<li>Integrate with configuration management tools</li>
+</ol>
+<h2 id="14-benefits-of-desktop-sharing-and-capturing-tools"><a class="header" href="#14-benefits-of-desktop-sharing-and-capturing-tools">14. Benefits of desktop sharing and capturing tools</a></h2>
+<ol>
+<li>Used for distributed teams, product demonstrations, code reviews, and even pairing.</li>
+<li>Capturing product demonstrations at the end of each iteration.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="test-bank"><a class="header" href="#test-bank">Test Bank</a></h1>
+<h2 id="1-provided-in-lectures"><a class="header" href="#1-provided-in-lectures">1. Provided in Lectures</a></h2>
+<ul>
+<li>
+<p>Lectures 3 &amp; 4 &amp; 5</p>
+<ul>
+<li>CTFL v3.1 <strong><code>[OLD]</code></strong>
+<ul>
+<li>
+<p>Version 1.7 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-A-Questions_v1.7.pdf">Questions</a>. </p>
+</li>
+<li>
+<p>Version 1.7 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-A-Answers_v1.7.pdf">Answers</a>. </p>
+</li>
+<li>
+<p>Version 1.4 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-B-Questions_v1.4.pdf">Questions</a>. </p>
+</li>
+<li>
+<p>Version 1.4 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-B-Answers_v1.4.pdf">Answers</a>. </p>
+</li>
+<li>
+<p>Version 1.3 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-C-Questions_v1.3.pdf">Questions</a>. </p>
+</li>
+<li>
+<p>Version 1.3 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB-CTFL-2018v3.1_Sample-Exam-C-Answers_v1.3.pdf">Answers</a>. </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Lectures 6 &amp; 7 &amp; 8</p>
+<ul>
+<li>CTFL-AT
+<ul>
+<li>Version 1.3 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL-AT_Sample-Exam-Questions_v1.3.pdf">Questions</a>. </li>
+<li>Version 1.3 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL-AT_Sample-Exam-Answers_v1.3.pdf">Answers</a>. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-not-provided-in-lectures"><a class="header" href="#2-not-provided-in-lectures">2. NOT Provided in Lectures</a></h2>
+<ul>
+<li>
+<p>Lectures 3 &amp; 4 &amp; 5 </p>
+<ul>
+<li>CTFL v4.0 <strong><code>[NEW]</code></strong>
+<ul>
+<li>Version 1.0 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL_Sample-Exam-Questions_v4.0.pdf">Questions</a>. </li>
+<li>Version 1.0 <a href="https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL_Sample-Exam-Answers_v4.0.pdf">Answers</a>. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
