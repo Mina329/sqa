@@ -180,3 +180,147 @@
 1. Used for distributed teams, product demonstrations, code reviews, and even pairing.
 2. Capturing product demonstrations at the end of each iteration.
 
+# General Exercises
+
+## 1. Complete
+
+1. During exploratory testing, results of the most recent tests guide the **(`.....`)**.
+2. **(`.....`)** is an uninterrupted period of testing, could last from 60-120 mints. 
+3. Test sessions include **(`.....`)** session to learn how it works, **(`.....`)** session to evaluate functionality, and **(`.....`)** for corner cases, scenarios, and interactions.
+4. **(`.....`)** provides a visual representation (via metrics, charts, and dashboards) of the current state of each user story, the iteration, and the release, allowing all stakeholders to quickly check status.
+5. Some Agile teams opt for an all-inclusive tool called **(`.....`)** that provides relevant features (such as task boards, burndown charts, and user stories). 
+6. **(`.....`)** allow teams to build up an online knowledge base on tools and techniques for development and testing activities.
+7. Risk of introducing regression in Agile development is high due to extensive **(`.....`)**.  To maintain velocity without incurring a large amount of **(`.....`)**, it is critical that teams invest in **(`.....`)** at all test levels early.
+8. It is critical that all test assets are kept up to-date with each **(`.....`)**.
+9. Testers need to allocate time in each **(`.....`)** to review manual and automated test cases from previous and current iterations to select test cases that may be candidates for the.
+10. **(`.....`)**, **(`.....`)**, and **(`.....`)** are three complementary techniques in use among Agile teams for testing across various test levels.
+11. Benefits of test-driven development include **(`.....`)**, **(`.....`)**, and **(`.....`)**.
+12. Results of BDD are **(`.....`)** used by the developer to develop test cases.
+13. BDD is concerned primarily with the specification of the behavior of the system under test as a whole, thus suited for **(`.....`)** and **(`.....`)** testing.
+
+>> 1. **(`Test Creation`)**
+>> 2. **(`Session`)**
+>> 3. **(`Survey session - Analysis session - Deep coverage`)** 
+>> 4. **(`physical story/task boards`)**
+>> 5. **(`test management tools`)**
+>> 6. **(`Wikis`)**
+>> 7. **(`code churn - technical debt - test automation`)**
+>> 8. **(`iteration`)**
+>> 9. **(`iteration`)**
+>> 10. **(`Test-driven development - behavior-driven development - acceptance test-driven development`)**
+>> 11. **(`Code coverage - Regression testing - Simplified debugging - System documentation`)**
+>> 12. **(`test classes`)**
+>> 13. **(`acceptance - regression `)**
+
+## 2. Replace with Key Term(s)
+
+1. Release that helps developer team and on-site customer to demonstrate product and focus only on least amount of work that has highest priority.
+2. XP team is not doing actual development during this time but acts as a buffer to deal with uncertainties and issues.
+3. Planning level where the requirements and features that can be delivered into production are decided based on priorities, capacity, estimations and risks factor of the team to deliver.
+4. In Kanban, the amount of parallel active tasks is strictly limited. This is controlled by the maximum number of tickets allowed for a station and/or globally for the board.
+5. Methodology used in situations where work arrives in an unpredictable fashion or when you want to deploy work as soon as it is ready, rather than waiting for other work items.
+6. Need to integrate changes made every few hours or  on a daily basis so after every code compilation and build we have to integrate it where all the tests are executed automatically for the entire project.
+7. Testing technique creates a functional/behavioral test for a requirement that fails because the feature does not exist.
+8. Testing technique where stakeholders write acceptance tests in plain language based on shared understanding of user story requirements.
+9. Common effort estimation technique used in Agile projects.
+10. Technique used by testers to write effective user stories and maintain collaborative authorship.
+11. Testing where test design and test execution occur at the same time, guided by a prepared test charter.
+12. Chart represents the amount of work left to be done against time allocated to the release or iteration.
+13. Testing adequate in Agile projects in case of limited time available for test analysis and limited details of the user stories.
+14. Capture story cards, development tasks, test tasks created during iteration planning, using color-coordinated cards.
+
+>> 1. `Minimum Viable Product (MVP)`
+>> 2. `Sustainable Pace `
+>> 3. `release planning`
+>> 4. `Work-in-Progress WIP Limit`
+>> 5. `Kanban`
+>> 6. `Continuous Integration (CI)`
+>> 7. `BDD`
+>> 8. `ATDD`
+>> 9. `planning poker and T-shirt sizing`
+>> 10. `INVEST Technique`
+>> 11. `Exploratory testing`
+>> 12. `burndown charts`
+>> 13. `Exploratory testing`
+>> 14. `Test Status and Progress`
+
+## 3. What does collective code ownership mean?
+
+>> Success or failure is a collective effort and there is no blame game. There is no one key player here, so if there is a bug or issue then any developer can fix it.
+
+## 4. List categories of project work products of interest to Agile testers. Mention one example on each category.
+
+1. Business-oriented work products
+
+    >> requirements specifications/user stories
+
+2. Development work products
+
+    >> database ERD , code , unit tests
+
+3. Test work products
+
+    >> test strategies and plans , manual and automated tests
+
+## 5. In a typical Agile project, it is a common practice to avoid producing vast amounts of documentation. Comment.
+
+>> - focus is more on having working software, together with automated tests that demonstrate conformance to requirements. 
+>> - This encouragement to reduce documentation applies only to documentation that does not deliver value to the customer.
+
+## 6. Differentiate between lead and cycle times
+
+>> - lead time : is the time between a request being made and a task being released.
+>> - cycle time : is calculating the actual work-in-progress time
+
+## 7. Automated acceptance tests are run with each check-in. True/False?
+
+>> False
+
+## 8. In addition to test automation, other testing tasks may also be automated.  Mention three.
+
+1. Test data generation
+2. Loading test data into systems
+3. Deployment of builds into the test environments
+4. Restoration of test environment to a baseline
+5. Comparison of data outputs
+
+## 9. Differentiate between defect density and intensity.
+
+>> - Defect intensity : how many defects are found per day or per transaction
+>> - Defect density : number of defects found compared to number of user stories, effort, and/or quality attributes
+
+## 10. List four items included in wikis
+
+1. Product feature diagrams, feature discussions
+2. Tools and techniques
+3. Metrics, charts, and dashboards
+4. Conversations
+
+## 11. Identify Corresponding Test Level ” Done” 
+
+1. All user personas covered.
+2. All interfaces between units tested.
+3. 100% decision coverage, if possible, with careful review of infeasible paths.
+4. All constituent user stories, with acceptance criteria, are approved by customer.
+5. Testing done in a production-like environment(s).
+6. All features for the iteration are ready and individually tested according to the feature level criteria.
+
+>> 1. System testing.
+>> 2. Integration testing.
+>> 3. Unit testing.
+>> 4. Feature testing.
+>> 5. System testing.
+>> 6. Iteration testing.
+
+## 12. Identify Test Tool
+
+1. Tools used to replace manual data loading.
+2. Specific tools available to support test first approaches, such as behavior-driven development, test-driven development, and acceptance test-driven development.
+3. Tools used to populate an application’s database are very beneficial when a lot of data and combinations of data are necessary to test the application.
+4. Tools capture and log activities performed on an application during an exploratory test session.
+
+>> 1. Test data load tools.
+>> 2. Automated test execution tools.
+>> 3. Test data preparation and generation tools.
+>> 4. Exploratory test tools.
+

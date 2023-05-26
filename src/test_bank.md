@@ -1,3 +1,9 @@
+# Exams
+
+- [**Midterm**](https://docs.google.com/document/d/1DnSGVIeowYPhd8V3Z9nlT8IuFjtPsaC_/edit?usp=drive_link).
+- [**Quiz v1**](https://docs.google.com/document/d/1Dl6Z5O2Ft0a3NZPwOTueB5OtafhXqq4m/edit?usp=drive_link).
+- [**Quiz v2**](https://docs.google.com/document/d/1Di0yvA0NaPmgjtxqgDqxPGCE8LMK7k_z/edit?usp=drive_link).
+
 # Test Bank
 
 ## 1. Provided in Lectures
@@ -27,3 +33,4 @@
     - CTFL v4.0 **`[NEW]`**
         - Version 1.0 [Questions](https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL_Sample-Exam-Questions_v4.0.pdf). 
         - Version 1.0 [Answers](https://istqb-main-web-prod.s3.amazonaws.com/media/documents/ISTQB_CTFL_Sample-Exam-Answers_v4.0.pdf). 
+

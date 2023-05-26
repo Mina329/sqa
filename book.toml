@@ -8,3 +8,4 @@ title = "QA Exercises"
 [output.html]
 default-theme = "rust"
 preferred-dark-theme = "rust"
+head = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-Q0R6TK9CN5\"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q0R6TK9CN5');</script>"
