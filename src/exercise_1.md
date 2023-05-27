@@ -24,6 +24,8 @@
 - lower the expense of maintenance
 - guards against system failure
 
+<div style="page-break-after: always;"></div>
+
 ## 4. Explain what is meant by PDCA/Deming cycle.
 
 > well defined cycle for quality assurance
@@ -50,6 +52,8 @@
 - best practices
 - approved methods
 - guidelines
+
+<div style="page-break-after: always;"></div>
 
 ## 8. Identify three similarities between QA and QC.
 
@@ -82,6 +86,8 @@
 13. It is critical activity that allows controlled changes to the processes
 14. focuses on satisfaction of requirement
 15. ensures that the product works as intended in its target environment
+
+<div style="page-break-after: always;"></div>
 
 >> 1. `noncompliance issues`
 >> 2. `poka-yoke` 

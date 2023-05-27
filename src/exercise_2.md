@@ -32,6 +32,8 @@ for changes proven to be effective
 - actions achieved
 - results achieved
 
+<div style="page-break-after: always;"></div>
+
 ## 4. Discuss advantages of PCDA approach.
 
 - stimulate continuous improvement
@@ -54,6 +56,8 @@ for changes proven to be effective
   > > > - ` R -> Relevant`
   > > > - ` T -> Time bound`
 
+  <div style="page-break-after: always;"></div>
+
 ## 6. Describe four types of costs of quality.
 
 - `cost of good quality`
@@ -74,6 +78,8 @@ for changes proven to be effective
 - conducting the audit
 - reporting the audit
 - follow up on issue or implements found
+
+<div style="page-break-after: always;"></div>
 
 ## 8. Explain roles in RACI model.
 
@@ -101,6 +107,8 @@ for changes proven to be effective
   > - CoQ is merely a scoreboard for current performance
   > - inability to quantify the hidden quality costs (hidden factory)
 
+  <div style="page-break-after: always;"></div>
+
 ## 10. MCQ
 
 1. The outputs of the management reviews shall include decisions and actions related to all following, except:
@@ -122,6 +130,8 @@ for changes proven to be effective
 
 >> 1.  `c. audit results`
 >> 2.  `d. results achieved`
+
+<div style="page-break-after: always;"></div>
 
 ## 11. Replace with Key Term(s)
 
@@ -148,6 +158,8 @@ for changes proven to be effective
 >> 9. `PDCA`
 >> 10. `the cost of poor quality (COPQ)`
 
+<div style="page-break-after: always;"></div>
+
 ## 12. A company’s website redesign would require design and development teams to work on tasks concurrently. Each task would affect work in sales, marketing, finance and business development. Structural changes, timelines and major costs would require input and approval from senior management.Needs can be easily overlooked and requirements dropped in such complex projects.What should the project manager create to avoid missing important details and ensure clear communication throughout the project?
 
   > `RACI Matrix`
@@ -168,6 +180,8 @@ for changes proven to be effective
 >> 4. Fish bone diagram. 
 >> 5. Pareto graph.
 >> 6. Brainstorming.
+
+<div style="page-break-after: always;"></div>
 
 ## 14. Identify type of root cause
 
@@ -199,6 +213,8 @@ for changes proven to be effective
 >> 3. information on the performance 
 >> 4. the adequacy of resources
 >> 5. the effectiveness of actions 
+
+<div style="page-break-after: always;"></div>
 
 ## 17. Mention management review outputs
 
