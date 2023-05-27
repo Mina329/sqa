@@ -1,3 +1,5 @@
+[![github-pages-deploy](https://github.com/Mina329/sqa/actions/workflows/gh-pages-deploy.yml/badge.svg?branch=master)](https://mina329.github.io/sqa)
+
 # Content
 1. Lecture 1 Exercises
 2. Lecture 2 Exercises
