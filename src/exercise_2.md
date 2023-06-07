@@ -151,8 +151,8 @@ for changes proven to be effective
 >> 2. `Pareto Principle`
 >> 3. `management reviews`
 >> 4. `cost of quality (COQ)`
->> 5. `hidden factory`
->> 6. `RACI Model/Matrix`
+>> 5. `internal audit`
+>> 6. `hidden factory`
 >> 7. `RACI Model/Matrix`
 >> 8. `root cause analysis (RCA)`
 >> 9. `PDCA`
