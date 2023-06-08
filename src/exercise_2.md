@@ -49,7 +49,7 @@ for changes proven to be effective
 5. recommend and implement solutions
 
 > Defining the problem
-  > > **SMART Rules**
+  > > **Using SMART Rules**
   > > > - ` S -> Specific`
   > > > - ` M -> Measurable`
   > > > - ` A -> Attainable`

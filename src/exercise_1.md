@@ -11,10 +11,11 @@
 
 ## 2. Objectivity in process quality assurance evaluations is critical to success of project. List four objective evaluation methods.
 
-- independent QA organization
-- independent reviewers
-- standard criteria
-- checklist
+- formal audit
+- peer reviews
+- desk audit
+- distributed review
+- poka-yoke
 
 ## 3. Mention four benefits of software quality assurance.
 
