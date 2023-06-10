@@ -1,8 +1,10 @@
 # Exams
 
 - [**Midterm**](https://docs.google.com/document/d/1DnSGVIeowYPhd8V3Z9nlT8IuFjtPsaC_/edit?usp=drive_link).
-- [**Quiz v1**](https://docs.google.com/document/d/1Dl6Z5O2Ft0a3NZPwOTueB5OtafhXqq4m/edit?usp=drive_link).
-- [**Quiz v2**](https://docs.google.com/document/d/1Di0yvA0NaPmgjtxqgDqxPGCE8LMK7k_z/edit?usp=drive_link).
+- [**Quiz v1 CS**](https://docs.google.com/document/d/1Dl6Z5O2Ft0a3NZPwOTueB5OtafhXqq4m/edit?usp=drive_link).
+- [**Quiz v2 CS**](https://docs.google.com/document/d/1Di0yvA0NaPmgjtxqgDqxPGCE8LMK7k_z/edit?usp=drive_link).
+- [**Quiz v1 IS**](https://docs.google.com/document/d/1QrYX2Gd1jlsRvvuiCXVYdVo7dHL7tFj7/edit).
+- [**Quiz v2 IS**](https://docs.google.com/document/d/1HvSjL-ZHr7azUOmR4o4HU1gr1SpBBkvj/edit).
 
 # Test Bank
 
