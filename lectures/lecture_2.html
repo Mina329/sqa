@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 2 - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Exercises</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../exercise_1.html"><strong aria-hidden="true">1.1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_2.html"><strong aria-hidden="true">1.2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_3.html"><strong aria-hidden="true">1.3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_4.html"><strong aria-hidden="true">1.4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_5.html"><strong aria-hidden="true">1.5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_6.html"><strong aria-hidden="true">1.6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_7.html"><strong aria-hidden="true">1.7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_8.html"><strong aria-hidden="true">1.8.</strong> Lecture 8 Exercises</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Test Bank</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test_bank.html"><strong aria-hidden="true">2.1.</strong> Test Bank</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Summary</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lectures/lecture_1.html"><strong aria-hidden="true">3.1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_2.html" class="active"><strong aria-hidden="true">3.2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_3.html"><strong aria-hidden="true">3.3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_4.html"><strong aria-hidden="true">3.4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_5.html"><strong aria-hidden="true">3.5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_6.html"><strong aria-hidden="true">3.6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_7.html"><strong aria-hidden="true">3.7.</strong> Lecture 7</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_8.html"><strong aria-hidden="true">3.8.</strong> Lecture 8</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="lecture-2"><a class="header" href="#lecture-2">Lecture 2</a></h1>
+<h1 id="1-cmmi-casual-analysis-and-resolution"><a class="header" href="#1-cmmi-casual-analysis-and-resolution">1. CMMI casual analysis and resolution</a></h1>
+<blockquote>
+<p>identify causes of selected outcomes and take action to improve
+process performance</p>
+</blockquote>
+<ul>
+<li>agile team that is consistently unable to complete the work defined for each sprint would look for
+<blockquote>
+<ul>
+<li>chornic distractions</li>
+<li>using unreliable velocity data</li>
+<li>poorly defined user stories</li>
+<li>exceeding team capacity</li>
+<li>understanding complxeity</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="12-when-to-apply-causal-analysis"><a class="header" href="#12-when-to-apply-causal-analysis">1.2 when to apply causal analysis?</a></h2>
+<ul>
+<li>during the task when problem or successes warrant [<code>تستدعي</code>] a causal analysis</li>
+<li>work product significantly deviates [<code>ينحرف</code>]</li>
+<li>more defects</li>
+<li>process performance exceeds expectations</li>
+<li>process does not meet its quality</li>
+</ul>
+<h2 id="13-factors-of-efforts-required-for-causal-analysis"><a class="header" href="#13-factors-of-efforts-required-for-causal-analysis">1.3 factors of efforts required for causal analysis</a></h2>
+<ul>
+<li>stakeholders</li>
+<li>risks</li>
+<li>complexity</li>
+<li>frequency</li>
+<li>availability of data</li>
+</ul>
+<h1 id="2-root-case-analysis-rca"><a class="header" href="#2-root-case-analysis-rca">2. root case analysis (RCA)</a></h1>
+<blockquote>
+<p>cmmi mechanism of analyzing the defects to identify its cause
+it helps to prevent defects in the later releases</p>
+</blockquote>
+<h2 id="21-type-of-root-causes"><a class="header" href="#21-type-of-root-causes">2.1 type of root causes</a></h2>
+<ol>
+<li>human cause (<em>under skilled</em>)</li>
+<li>organizational cause (<em>vague [<code>غامض</code>] instructions given by team lead, monitoring tools not in place to assess the quality</em>)</li>
+<li>physical cause (<em>computer keep restaring</em>)</li>
+</ol>
+<h2 id="22-rca-facilitator"><a class="header" href="#22-rca-facilitator">2.2 RCA facilitator</a></h2>
+<ul>
+<li>ensure no blame approach</li>
+<li>ensure team focas on solutions not problems</li>
+<li>provide training</li>
+<li>ensure info captured into rca document</li>
+</ul>
+<h2 id="23-how-to-perform-rca"><a class="header" href="#23-how-to-perform-rca">2.3 how to perform RCA</a></h2>
+<ol>
+<li>define the problem using <code>smart</code> rules</li>
+<li>collect data</li>
+<li>identify possible causal factors</li>
+<li>identify the root cause</li>
+<li>recommend and implement solutions</li>
+</ol>
+<h2 id="24-rca-tools"><a class="header" href="#24-rca-tools">2.4 RCA tools</a></h2>
+<ul>
+<li>brainstorming</li>
+<li>5 whys</li>
+<li>fishbone diagram</li>
+<li>scatter plots</li>
+<li>pareto chart</li>
+<li>FMEA</li>
+</ul>
+<h3 id="241-brainstorming"><a class="header" href="#241-brainstorming">2.4.1 brainstorming</a></h3>
+<blockquote>
+<p>is a group process in which everyone gives an idea in rotation until
+next round to collect different viewpoints</p>
+<blockquote>
+<p><code>challenges</code></p>
+<ul>
+<li>wrong root cause may be selected without evidence and structured way to analyze</li>
+<li>will not get beyond the collective knowledge of the team</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="242-5-whys"><a class="header" href="#242-5-whys">2.4.2 5 whys</a></h3>
+<blockquote>
+<ul>
+<li>it aims to inspect a certain problem in depth until it shows you real cause.</li>
+<li>Avoid answers that are too simple / overlook important details.</li>
+</ul>
+</blockquote>
+<ul>
+<li>whys</li>
+<li>whys</li>
+<li>whys</li>
+<li>whys</li>
+<li>whys</li>
+</ul>
+<h3 id="243-fishbone-diagram"><a class="header" href="#243-fishbone-diagram">2.4.3 fishbone diagram</a></h3>
+<blockquote>
+<p>known as the cause and effect diagram</p>
+<blockquote>
+<p>shows the problem at the head of the fish-like looking diagram and the backbone with major factors</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><code>steps</code>
+<blockquote>
+<ol>
+<li>write the problem at the haed of the fish</li>
+<li>identify the category of causes and write at end of each bone</li>
+<li>identify the primary cause under each category</li>
+<li>extend the causes to secondary, teriary, ...</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="244-scatter-plots"><a class="header" href="#244-scatter-plots">2.4.4 scatter plots</a></h3>
+<blockquote>
+<p>visual representations of a relationship between 2 sets of data to test correlation between variable</p>
+</blockquote>
+<h3 id="245-pareto-chart"><a class="header" href="#245-pareto-chart">2.4.5 pareto chart</a></h3>
+<blockquote>
+<p>bar graph that groups the frequency distribution to show the relative significance of causes of failure</p>
+<blockquote>
+<p><code>80% of effects</code> come from <code>20% of causes</code> (<code>pareto principle</code>)</p>
+</blockquote>
+</blockquote>
+<h3 id="246-fmea-failure-mode-and-effect-analysis"><a class="header" href="#246-fmea-failure-mode-and-effect-analysis">2.4.6 FMEA (failure mode and effect analysis)</a></h3>
+<blockquote>
+<p>method used during the product design to identify potential problems and solve them</p>
+</blockquote>
+<ul>
+<li>failure modes
+<ul>
+<li>identifies all the ways that a problem could occur</li>
+</ul>
+</li>
+<li>effects analysis
+<ul>
+<li>evalute the causes and consequences of each failure mode</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>A <code>Severity Occurrence and Detection (SOD)</code> rating to calculate risk and determine the next steps</p>
+</blockquote>
+<h1 id="3-addressing-causes"><a class="header" href="#3-addressing-causes">3. addressing causes</a></h1>
+<ul>
+<li>changing the process to remove error-prone steps</li>
+<li>updating a process based on previous sucessess</li>
+<li>eliminating non-value-added task</li>
+<li>automating all or part of the process</li>
+<li>adding process steps</li>
+</ul>
+<h2 id="31-actional-proposal"><a class="header" href="#31-actional-proposal">3.1 actional proposal</a></h2>
+<h2 id="32-action-plans"><a class="header" href="#32-action-plans">3.2 action plans</a></h2>
+<p>implement the selected action proposals
+includes:</p>
+<ul>
+<li>people responsible</li>
+<li>description of the action</li>
+<li>description of necessary tasks</li>
+<li>description effected areas</li>
+<li>effected stakeholders</li>
+<li>cost</li>
+</ul>
+<h2 id="33-process-improvement-proposals"><a class="header" href="#33-process-improvement-proposals">3.3 process improvement proposals</a></h2>
+<p>for changes proven to be effective</p>
+<ul>
+<li>areas that were analyzed including their context</li>
+<li>solution selection</li>
+<li>actions achieved</li>
+<li>results achieved</li>
+</ul>
+<h1 id="4-international-standard"><a class="header" href="#4-international-standard">4. international standard</a></h1>
+<h2 id="41-internal-audit"><a class="header" href="#41-internal-audit">4.1 internal audit</a></h2>
+<ul>
+<li>organization shall conduct internal audit to provide info whether the quality management system
+<blockquote>
+<ul>
+<li>confirms to
+<ul>
+<li>organization's own requirements</li>
+<li>international standard requirements</li>
+</ul>
+</li>
+<li>is effectivly maintained and implemented</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="41-internal-audit-steps"><a class="header" href="#41-internal-audit-steps">4.1. internal audit steps</a></h3>
+<ul>
+<li>planning the audit scheduling</li>
+<li>planning the process audit</li>
+<li>conducting the audit</li>
+<li>reporting the audit</li>
+<li>follow up on issue or implements found</li>
+</ul>
+<h2 id="42-management-reviews"><a class="header" href="#42-management-reviews">4.2. management reviews</a></h2>
+<h3 id="421-management-reviews-input"><a class="header" href="#421-management-reviews-input">4.2.1 management reviews input</a></h3>
+<ul>
+<li>status of actions</li>
+<li>changes in external and internal issues</li>
+<li>information on the performance</li>
+<li>the effectiveness of actions</li>
+</ul>
+<h3 id="422-management-reviews-outputs"><a class="header" href="#422-management-reviews-outputs">4.2.2 management reviews outputs</a></h3>
+<ul>
+<li>opportunities for improvements</li>
+<li>any need for changes</li>
+<li>resource needs</li>
+</ul>
+<h3 id="423-improvements"><a class="header" href="#423-improvements">4.2.3 improvements</a></h3>
+<ul>
+<li>product and service</li>
+<li>correcting and preventing</li>
+<li>performance and effectiveness</li>
+</ul>
+<h3 id="424-nonconformity-and-corrective-action"><a class="header" href="#424-nonconformity-and-corrective-action">4.2.4 nonconformity and corrective action</a></h3>
+<ul>
+<li>react to the nonconformity and, as applicable</li>
+<li>evaluate the need for action to eliminate the cause(s) of nonconformity</li>
+<li>implement any action needed;</li>
+<li>review the effectiveness of any corrective action taken</li>
+<li>update risks and opportunities determined during planning</li>
+<li>make changes to the quality management system, if necessary.</li>
+</ul>
+<h3 id="425-continuous-improvement"><a class="header" href="#425-continuous-improvement">4.2.5 continuous improvement</a></h3>
+<p>by PDCA (plan-do-check-act)</p>
+<h1 id="5-pdca"><a class="header" href="#5-pdca">5. PDCA</a></h1>
+<blockquote>
+<p>cycle that is useful too that help the teams to solve problem efficiently</p>
+</blockquote>
+<p>adv</p>
+<ul>
+<li>stimulate continuous improvement</li>
+<li>test possible solutions</li>
+<li>prevent from recurring mistakes</li>
+</ul>
+<h1 id="6-raci-modelmatrix"><a class="header" href="#6-raci-modelmatrix">6. RACI model/matrix</a></h1>
+<blockquote>
+<p>shows how each person contributes to a project</p>
+</blockquote>
+<ul>
+<li>responsible
+<ul>
+<li>
+<blockquote>
+<p>ensure right things happen in the right time</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>accountable
+<ul>
+<li>
+<blockquote>
+<p>ensure that something gets done correctly</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>consult
+<ul>
+<li>
+<blockquote>
+<p>people who need to be consulted</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>inform
+<ul>
+<li>
+<blockquote>
+<p>need to be kept informed</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-cost-of-equality-coq"><a class="header" href="#7-cost-of-equality-coq">7. cost of equality (CoQ)</a></h1>
+<blockquote>
+<p>method for calculating the costs</p>
+</blockquote>
+<ul>
+<li><code>cost of good quality</code>
+<ul>
+<li>prevention cost
+<blockquote>
+<p>prevent poor quality in products</p>
+</blockquote>
+</li>
+<li>appraisal cost
+<blockquote>
+<p>measure, inspect, evalute products to assure conformance to quality requirements</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><code>cost of poor quality</code>
+<ul>
+<li>internal failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification before shipment to customer</p>
+</blockquote>
+</li>
+<li>external failure cost
+<blockquote>
+<p>when a product fails to conform to quality specification after shipment to customer</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="71-goal--benefits-of-coq"><a class="header" href="#71-goal--benefits-of-coq">7.1 goal &amp; benefits of CoQ</a></h2>
+<blockquote>
+<p>cost of poor equality (COPQ)</p>
+<blockquote>
+<p>costs that are generated as a result of producing defective material</p>
+</blockquote>
+</blockquote>
+<h2 id="72-coq-benefits"><a class="header" href="#72-coq-benefits">7.2 CoQ benefits</a></h2>
+<ul>
+<li>higher profitability</li>
+<li>more consistent products</li>
+<li>greater customer satisfaction</li>
+<li>lower costs</li>
+<li>meeting industry standard</li>
+<li>increase staff motivation</li>
+<li>reducing waste</li>
+</ul>
+<h2 id="73-coq-limitation"><a class="header" href="#73-coq-limitation">7.3 CoQ limitation</a></h2>
+<ul>
+<li>measuring quality costs does not solve quality problems</li>
+<li>CoQ is merely a scoreboard for current performance</li>
+<li>inability to quantify the hidden quality costs (hidden factory)</li>
+</ul>
+<blockquote>
+<p><code>hidden factory</code> represent the percentage of an organizations total capacity or effort that is being used to overcome the cost of poor qualit</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lectures/lecture_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../lectures/lecture_3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lectures/lecture_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../lectures/lecture_3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+        <!-- Google Analytics Tag -->
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'G-Q0R6TK9CN5', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

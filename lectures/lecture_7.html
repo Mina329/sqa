@@ -1,0 +1,442 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 7 - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Exercises</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../exercise_1.html"><strong aria-hidden="true">1.1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_2.html"><strong aria-hidden="true">1.2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_3.html"><strong aria-hidden="true">1.3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_4.html"><strong aria-hidden="true">1.4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_5.html"><strong aria-hidden="true">1.5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_6.html"><strong aria-hidden="true">1.6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_7.html"><strong aria-hidden="true">1.7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_8.html"><strong aria-hidden="true">1.8.</strong> Lecture 8 Exercises</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Test Bank</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test_bank.html"><strong aria-hidden="true">2.1.</strong> Test Bank</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Summary</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lectures/lecture_1.html"><strong aria-hidden="true">3.1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_2.html"><strong aria-hidden="true">3.2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_3.html"><strong aria-hidden="true">3.3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_4.html"><strong aria-hidden="true">3.4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_5.html"><strong aria-hidden="true">3.5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_6.html"><strong aria-hidden="true">3.6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_7.html" class="active"><strong aria-hidden="true">3.7.</strong> Lecture 7</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_8.html"><strong aria-hidden="true">3.8.</strong> Lecture 8</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="lecture-7"><a class="header" href="#lecture-7">Lecture 7</a></h1>
+<h1 id="1-continuous-integrations"><a class="header" href="#1-continuous-integrations">1. continuous integrations</a></h1>
+<p>integrating all changed components regularly, at least once a day</p>
+<h2 id="12-components-integrations-automated-activities"><a class="header" href="#12-components-integrations-automated-activities">1.2 components integrations automated activities</a></h2>
+<ol>
+<li>static code analysis</li>
+<li>compile</li>
+<li>unit tests</li>
+<li>deploy</li>
+<li>integration tests</li>
+<li>reports (dashboard)</li>
+</ol>
+<ul>
+<li>post results of all activities</li>
+</ul>
+<h2 id="13-ci-chanllenges"><a class="header" href="#13-ci-chanllenges">1.3 CI chanllenges</a></h2>
+<ul>
+<li>CI tools have to be introduced and maintained</li>
+<li>CI process must be defined and established</li>
+<li>test automation requires additional resources and may be complex to establish</li>
+<li>test coverage is essential</li>
+<li>teams sometimes over-rely on unit tests and ignore system and acceptance tests</li>
+</ul>
+<h1 id="2-release-planning-vs-iteration-planning"><a class="header" href="#2-release-planning-vs-iteration-planning">2. release planning vs iteration planning</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>release planning</th><th>iteration planning</th></tr></thead><tbody>
+<tr><td>defines and re-defines product backlog</td><td>concerned with the iteration backlog</td></tr>
+<tr><td>high level</td><td>low level</td></tr>
+<tr><td>nvolve refining larger user stories</td><td></td></tr>
+<tr><td>establish and prioritize the user stories for the release</td><td>concerned with the iteration backlog</td></tr>
+<tr><td>provides the basis for a test approach</td><td></td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>
+<p>release planning</p>
+<ul>
+<li><code>Defining testable user stories</code>, including acceptance criteria</li>
+<li>Participating in project and <code>quality risk analyses</code></li>
+<li><code>Estimating testing effort</code> associated with the user stories</li>
+<li>Defining the <code>necessary test levels</code></li>
+<li>Planning the testing for the release</li>
+</ul>
+</li>
+<li>
+<p>iteration planning</p>
+<ul>
+<li>Participating in the <code>detailed risk analysis of user stories</code></li>
+<li>Determining the <code>testability of the user stories</code></li>
+<li>Creating <code>acceptance tests</code> for the user stories</li>
+<li><code>Breaking down user stories</code> into tasks (particularly testing tasks)</li>
+<li><code>Estimating testing effort</code> for all testing tasks</li>
+<li><code>Identifying functional and non-functional</code> aspects of system to be tested</li>
+<li>Supporting and <code>participating in test automation</code> at multiple levels of testing</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>Test oracle</code>:</p>
+<ul>
+<li>compare expected output with actual mechanism that determines whether software executed correctly for a test case</li>
+</ul>
+</blockquote>
+<h1 id="3-agile-principles"><a class="header" href="#3-agile-principles">3. agile principles</a></h1>
+<blockquote>
+<ul>
+<li><code>stablization iterations</code>
+<ul>
+<li>occur periodically to resolve any remaining <code>defects</code> and any other form of <code>technical debt</code></li>
+</ul>
+</li>
+<li><code>fix bug first</code>
+<ul>
+<li>address defects remaining from the previous iteration</li>
+</ul>
+</li>
+<li><code>Pairing</code></li>
+<li>automation test at all levels
+<ul>
+<li>involve testers working together in twos to test a feature</li>
+</ul>
+</li>
+<li>Developers focus on creating unit tests.</li>
+<li>Testers should focus on creating automated integration,</li>
+<li>Lightweight work product documentation</li>
+<li>Changes to existing features has regression testing implications</li>
+</ul>
+</blockquote>
+<h1 id="4-test-activities-during-iteration"><a class="header" href="#4-test-activities-during-iteration">4. test activities during iteration</a></h1>
+<p>during an iteration, any given user story will typically progress
+sequentially through the following test activities</p>
+<ul>
+<li>unit testing</li>
+<li>feature acceptance testing
+<ul>
+<li>feature verification testing
+<ul>
+<li>automated</li>
+<li>by tester or developer</li>
+<li>against user's story acceptance crieteria</li>
+</ul>
+</li>
+<li>feature validation testing
+<ul>
+<li>manual</li>
+<li>determines if the feature is fit for use and to get feedback from the business stakeholders</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-project-work-products"><a class="header" href="#5-project-work-products">5. project work products</a></h1>
+<p>caegories</p>
+<ul>
+<li>business-oriented work products
+<ul>
+<li>what is needed (ie requirements, specification/user stories)</li>
+</ul>
+</li>
+<li>development work products
+<ul>
+<li>how the system is built (databases, erd, code or test cases)</li>
+</ul>
+</li>
+<li>test work products
+<ul>
+<li>how the system is tested (test strategies and plans, manual and automated tests)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>Configuration management system</code> allow the CI of new software with the system, with the static analysis and unit tests run repeatedly as new software is checked in</p>
+</blockquote>
+<h1 id="6-orgaizational-options-for-independent-testing"><a class="header" href="#6-orgaizational-options-for-independent-testing">6. orgaizational options for independent testing</a></h1>
+<ol>
+<li>embedded tester(s) witthin the team
+<ul>
+<li>risk of loss of independence and loss of objective evaluation</li>
+</ul>
+</li>
+<li>fully independent seperate test team during the final days of each sprint
+<ul>
+<li>provide unbaised evaluation</li>
+<li>time preasures, lack of understanding lead ot problems with this approach</li>
+</ul>
+</li>
+<li>independent seperate test team assigned to agile team on al long-term basis at the beginning of the project</li>
+</ol>
+<h1 id="7-test-status-and-progress"><a class="header" href="#7-test-status-and-progress">7. test status and progress</a></h1>
+<p>communication is done by <code>wiki dashboards</code>, <code>dashboard style emails</code>, <code>stand-up meetings</code></p>
+<ul>
+<li><code>burndown charts</code>
+<ul>
+<li>represents the amount of work left to be done against time allocated to the release</li>
+</ul>
+</li>
+</ul>
+<h1 id="8-benefits-of-automated-tests"><a class="header" href="#8-benefits-of-automated-tests">8. benefits of automated tests</a></h1>
+<ul>
+<li>provide rapid feedback on product quality</li>
+<li>provide a living document of system functionality</li>
+<li>run before source code is checked into mainline to ensure not breakage on the build</li>
+<li>automated unit test results provide immediate feedback on code and build quality, but not on product quality.</li>
+</ul>
+<h1 id="9-automated-acceptance-tests"><a class="header" href="#9-automated-acceptance-tests">9. automated Acceptance Tests</a></h1>
+<ul>
+<li>run regularly as part of CI</li>
+<li>run against a complete system</li>
+<li>test results provide feadback on product quality with respect to regression</li>
+</ul>
+<p><code>smoke test</code> (build verification tests)</p>
+<ul>
+<li>an initial subset of automated tests to cover critical system functionality and integration points</li>
+</ul>
+<h1 id="10-agile-testing-techniques"><a class="header" href="#10-agile-testing-techniques">10. agile testing techniques</a></h1>
+<ul>
+<li>test-driven development</li>
+<li>behaviour-driven development</li>
+<li>acceptance-driven development</li>
+</ul>
+<h2 id="101-tdd"><a class="header" href="#101-tdd">10.1 TDD</a></h2>
+<ul>
+<li>
+<p>concenred primarily with thes testing of a component as a unit</p>
+</li>
+<li>
+<p>suited for component testing</p>
+</li>
+<li>
+<p>benefits</p>
+<ul>
+<li>code coverage</li>
+<li>regression testing</li>
+<li>simplified debugging</li>
+<li>system documentation</li>
+</ul>
+</li>
+</ul>
+<h2 id="102-bdd"><a class="header" href="#102-bdd">10.2 BDD</a></h2>
+<ul>
+<li>
+<p>functional/feature test of expected behaviours of an application as a whole</p>
+</li>
+<li>
+<p>concerned primarily with the specification of the behaviour of the
+system under test as a whole</p>
+</li>
+<li>
+<p>suited for acceptance and regression testing</p>
+</li>
+<li>
+<p>its results used by developers to develop test cases</p>
+</li>
+<li>
+<p>format</p>
+<ul>
+<li>given</li>
+<li>when</li>
+<li>then</li>
+</ul>
+</li>
+</ul>
+<h2 id="103-acceptance-test-driven-development-atdd"><a class="header" href="#103-acceptance-test-driven-development-atdd">10.3 acceptance test-driven development ATDD</a></h2>
+<ul>
+<li>involves cooperative stakeholders using plain language to write acceptance tests</li>
+<li>written from the user’s external point of view.</li>
+<li>is more in tune with the user story</li>
+<li>focus on defining the requirements of a feature</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lectures/lecture_6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../lectures/lecture_8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lectures/lecture_6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../lectures/lecture_8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+        <!-- Google Analytics Tag -->
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'G-Q0R6TK9CN5', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

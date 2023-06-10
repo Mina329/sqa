@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 6 - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Exercises</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../exercise_1.html"><strong aria-hidden="true">1.1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_2.html"><strong aria-hidden="true">1.2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_3.html"><strong aria-hidden="true">1.3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_4.html"><strong aria-hidden="true">1.4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_5.html"><strong aria-hidden="true">1.5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_6.html"><strong aria-hidden="true">1.6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_7.html"><strong aria-hidden="true">1.7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_8.html"><strong aria-hidden="true">1.8.</strong> Lecture 8 Exercises</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Test Bank</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test_bank.html"><strong aria-hidden="true">2.1.</strong> Test Bank</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Summary</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lectures/lecture_1.html"><strong aria-hidden="true">3.1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_2.html"><strong aria-hidden="true">3.2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_3.html"><strong aria-hidden="true">3.3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_4.html"><strong aria-hidden="true">3.4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_5.html"><strong aria-hidden="true">3.5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_6.html" class="active"><strong aria-hidden="true">3.6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_7.html"><strong aria-hidden="true">3.7.</strong> Lecture 7</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_8.html"><strong aria-hidden="true">3.8.</strong> Lecture 8</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="lecture-6"><a class="header" href="#lecture-6">Lecture 6</a></h1>
+<h1 id="the-agile-manifesto"><a class="header" href="#the-agile-manifesto">the agile manifesto</a></h1>
+<ul>
+<li>individual and interactions over processes</li>
+<li>working software over documentation</li>
+<li>customer collaboration over contract negotiation</li>
+<li>responding to change over following plan</li>
+</ul>
+<h1 id="1-whole-team-approache"><a class="header" href="#1-whole-team-approache">1. whole-team approache</a></h1>
+<ul>
+<li>the whole team is responsible for quality in Agile projects.</li>
+<li>the team should be relatively small</li>
+<li>shares the same workspace</li>
+<li>Testers will work closely with both developers and business</li>
+</ul>
+<h1 id="2-early--frequent-feedback"><a class="header" href="#2-early--frequent-feedback">2. early &amp; frequent feedback</a></h1>
+<p>agile projects have short iteration to receive <code>early</code> and <code>continuous</code> feedback on product quality</p>
+<blockquote>
+<p><code>benefits</code></p>
+<ul>
+<li>avoiding requirements misunderstandings</li>
+<li>clarifing customer feature requests</li>
+<li>discovering and resolving quality problems early</li>
+<li>providing information to agle team regrading its productivity</li>
+</ul>
+</blockquote>
+<h1 id="3-agile-approaches"><a class="header" href="#3-agile-approaches">3. agile approaches</a></h1>
+<h2 id="31-aspects-of-agile-approaches"><a class="header" href="#31-aspects-of-agile-approaches">3.1 Aspects of Agile Approaches</a></h2>
+<ul>
+<li>collaborative user story creation</li>
+<li>retrospectives</li>
+<li>continuous integration</li>
+<li>release planning and iteration</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>extreme programming</code>
+<ul>
+<li>values
+<ul>
+<li>communication</li>
+<li>simplicity</li>
+<li>feedback</li>
+<li>courage</li>
+<li>respect</li>
+</ul>
+</li>
+<li>practices
+<ul>
+<li>collective ownership</li>
+<li>continuous integration</li>
+<li>small releases</li>
+<li>refactoring</li>
+<li>test driven development</li>
+<li>planning game</li>
+<li>pair programming</li>
+<li>coding standard</li>
+<li>metaphor</li>
+<li>sustainable pace</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>scrum</li>
+<li>kanban</li>
+</ul>
+</blockquote>
+<h1 id="4-extreme-programming"><a class="header" href="#4-extreme-programming">4. extreme programming</a></h1>
+<h2 id="41-planning-game"><a class="header" href="#41-planning-game">4.1. planning game</a></h2>
+<ul>
+<li>
+<p>two levels</p>
+<ol>
+<li>release planning
+<ul>
+<li>the team and stakeholders decide what the requirements &amp; features to be into production</li>
+</ul>
+</li>
+<li>iteration planning
+<ul>
+<li>the team pick up the most valuable items from the list and break them down into tasks to finish at the end of the iteration</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>three steps for every level</p>
+<ol>
+<li>exploration</li>
+<li>commitment</li>
+<li>stearing</li>
+</ol>
+</li>
+</ul>
+<h2 id="42-simple-design--refactoring"><a class="header" href="#42-simple-design--refactoring">4.2. simple design &amp; refactoring</a></h2>
+<ul>
+<li>code is frequently refactored</li>
+<li>make the 'definition of done' easier.</li>
+<li>conduct a small test or proof-of-concept workout called <code>Spike</code></li>
+</ul>
+<h2 id="43-spike"><a class="header" href="#43-spike">4.3 spike</a></h2>
+<blockquote>
+<p>a small test or <code>proof-of-concept</code> workout that uses the simplest possible program to explore potential solutions</p>
+</blockquote>
+<h2 id="44-minimum-viable-product-mvp"><a class="header" href="#44-minimum-viable-product-mvp">4.4. minimum viable product (<strong>MVP</strong>)</a></h2>
+<ul>
+<li>advs
+<ol>
+<li>help to breakdown complex modules in a small chunk of code</li>
+<li>help to demonstrate the production and focus only on the least amount of work with high priority</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p><code>complete</code></p>
+<p>cross-functional team in XP releases <code>Minimum Viable Product (MVP)</code> frequently.</p>
+</blockquote>
+<h2 id="45-system-metaphor"><a class="header" href="#45-system-metaphor">4.5. system metaphor</a></h2>
+<p>naming conversion practice used in design and code to have a shared understaing beween teams</p>
+<h2 id="46-pair-programming"><a class="header" href="#46-pair-programming">4.6. pair programming</a></h2>
+<p>consists of 2 pragrammers operating on the same code</p>
+<ul>
+<li><code>pilot</code> programmer focuses on clean code, compiles and runs</li>
+<li><code>navigator</code> programmer focuses on the big picture and review code for imporvements</li>
+</ul>
+<h2 id="47-collective-code-ownership"><a class="header" href="#47-collective-code-ownership">4.7. collective code ownership</a></h2>
+<ul>
+<li>no blame game</li>
+<li>no key player</li>
+</ul>
+<h2 id="48-continuous-integration-ci"><a class="header" href="#48-continuous-integration-ci">4.8. continuous integration (<strong>CI</strong>)</a></h2>
+<p>integrate changes every fiew hours or on a daily basis</p>
+<h2 id="49-test-driven-development"><a class="header" href="#49-test-driven-development">4.9. test driven development</a></h2>
+<p>tests are written before code</p>
+<h2 id="410-sustainable-pace"><a class="header" href="#410-sustainable-pace">4.10. sustainable pace</a></h2>
+<p>it's a slack time (no development activities) during the iteration that acts as a buffer to deal with uncertainties</p>
+<blockquote>
+<p><code>compelete</code></p>
+<p>Teams can use the <code>slack time</code> to pay down <code>technical debt</code> by
+refactoring code or do research to keep up the pace.</p>
+</blockquote>
+<h1 id="5-scrum"><a class="header" href="#5-scrum">5. scrum</a></h1>
+<p>unlike <strong>XP</strong>, does not follow specific techniques or how the testing to be done</p>
+<h1 id="6-kanban"><a class="header" href="#6-kanban">6. kanban</a></h1>
+<ul>
+<li>objective is to visualize &amp; optimize the flow of work within a value-added chain</li>
+<li>used in
+<ol>
+<li>situations where work arrivees in an unpredictable fashion</li>
+<li>when you want to deploy work as soon as it's ready</li>
+<li>with teams that have a lot of incoming requests</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>kanban board</code>
+<ul>
+<li>visualize the value chain that will be managed</li>
+</ul>
+</li>
+<li><code>work in progress (WIP) limit</code>
+<ul>
+<li>the maximum amount of tickets allow for a station or globally for the board</li>
+</ul>
+</li>
+<li><code>kanban lead time</code>
+<ul>
+<li>the time between a request being mad and a task being released (client wait time for a task to be done)</li>
+<li>used to evaluate customer satisfaction</li>
+</ul>
+</li>
+<li><code>kanban cycle time</code> (actual work in progress time)
+<ul>
+<li>tracks how long task stays in the different process stages</li>
+<li>used to measure team performance</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="7-scrum-vs-kanban"><a class="header" href="#7-scrum-vs-kanban">7. scrum vs kanban</a></h1>
+<div class="table-wrapper"><table><thead><tr><th></th><th>scrum</th><th>kanban</th></tr></thead><tbody>
+<tr><td>cadence</td><td>fixed length sprints (2 weeks)</td><td>continuous flow</td></tr>
+<tr><td>release methodology</td><td>at the end of sprint</td><td>continuous delivery</td></tr>
+<tr><td>roles</td><td>product owner, scrum master, dev team</td><td>no required</td></tr>
+<tr><td>key metrics</td><td>velocity</td><td>lead time, cycle time, WIP</td></tr>
+<tr><td>change philosophy</td><td>no changes during the sprint</td><td>can happen any time</td></tr>
+</tbody></table>
+</div>
+<h1 id="8-user-story"><a class="header" href="#8-user-story">8. user story</a></h1>
+<p>agile form for requirements specifications</p>
+<ul>
+<li>
+<p>must address the functional and non-functional requirements</p>
+</li>
+<li>
+<p>includes acceptance criteria</p>
+</li>
+<li>
+<p><code>epics</code></p>
+<ul>
+<li>larger collections of related features, or a collection of sub-features that make up a single complex feature</li>
+<li>include user stories for different development teams</li>
+</ul>
+</li>
+</ul>
+<h2 id="81-user-stories-creation-techniques"><a class="header" href="#81-user-stories-creation-techniques">8.1 user stories creation techniques</a></h2>
+<p>written to capture requirements from the perspectives of developers, testers, and business representatives through <code>informal review</code></p>
+<h3 id="811-invest-technique"><a class="header" href="#811-invest-technique">8.1.1 invest technique</a></h3>
+<p>tester may use the invest technique to write effective user stories</p>
+<ul>
+<li>
+<p>techniquess</p>
+<ol>
+<li>brainstorming</li>
+<li>mind mapping</li>
+</ol>
+</li>
+<li>
+<p><code>I</code> =&gt; independient</p>
+</li>
+<li>
+<p><code>N</code> =&gt; nogotiable</p>
+</li>
+<li>
+<p><code>V</code> =&gt; add value</p>
+</li>
+<li>
+<p><code>E</code> =&gt; estimatable in time</p>
+</li>
+<li>
+<p><code>S</code> =&gt; short</p>
+</li>
+<li>
+<p><code>T</code> =&gt; testable</p>
+</li>
+</ul>
+<h3 id="812-3cs-concept"><a class="header" href="#812-3cs-concept">8.1.2 3cs concept</a></h3>
+<ol>
+<li><code>card</code>
+<ul>
+<li>phsical media describing a user story</li>
+</ul>
+</li>
+<li><code>conversation</code>
+<ul>
+<li>explains how the software will be used</li>
+</ul>
+</li>
+<li><code>confirmation</code></li>
+</ol>
+<ul>
+<li>the acceptance criteria to confirm that the story is done</li>
+</ul>
+<h1 id="9-retrospectives"><a class="header" href="#9-retrospectives">9 retrospectives</a></h1>
+<p>a meeting held at the end of each iteration to discuss what was successful, what can be imporved and how to incorporate it</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lectures/lecture_5.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../lectures/lecture_7.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lectures/lecture_5.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../lectures/lecture_7.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+        <!-- Google Analytics Tag -->
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'G-Q0R6TK9CN5', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lecture 5 - QA Exercises</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Exercises</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../exercise_1.html"><strong aria-hidden="true">1.1.</strong> Lecture 1 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_2.html"><strong aria-hidden="true">1.2.</strong> Lecture 2 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_3.html"><strong aria-hidden="true">1.3.</strong> Lecture 3 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_4.html"><strong aria-hidden="true">1.4.</strong> Lecture 4 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_5.html"><strong aria-hidden="true">1.5.</strong> Lecture 5 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_6.html"><strong aria-hidden="true">1.6.</strong> Lecture 6 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_7.html"><strong aria-hidden="true">1.7.</strong> Lecture 7 Exercises</a></li><li class="chapter-item expanded "><a href="../exercise_8.html"><strong aria-hidden="true">1.8.</strong> Lecture 8 Exercises</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Test Bank</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../test_bank.html"><strong aria-hidden="true">2.1.</strong> Test Bank</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Summary</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../lectures/lecture_1.html"><strong aria-hidden="true">3.1.</strong> Lecture 1</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_2.html"><strong aria-hidden="true">3.2.</strong> Lecture 2</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_3.html"><strong aria-hidden="true">3.3.</strong> Lecture 3</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_4.html"><strong aria-hidden="true">3.4.</strong> Lecture 4</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_5.html" class="active"><strong aria-hidden="true">3.5.</strong> Lecture 5</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_6.html"><strong aria-hidden="true">3.6.</strong> Lecture 6</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_7.html"><strong aria-hidden="true">3.7.</strong> Lecture 7</a></li><li class="chapter-item expanded "><a href="../lectures/lecture_8.html"><strong aria-hidden="true">3.8.</strong> Lecture 8</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">QA Exercises</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="lecture-5"><a class="header" href="#lecture-5">Lecture 5</a></h1>
+<h1 id="1-test-case-design-and-techniques"><a class="header" href="#1-test-case-design-and-techniques">1. test case design and techniques</a></h1>
+<ul>
+<li>blackbox
+<ul>
+<li>based on requirements</li>
+<li>techniques
+<ol>
+<li>equivalcence partitioning
+<ul>
+<li>valid partitions</li>
+<li>invalid partitions</li>
+</ul>
+</li>
+<li>boundary value analysis (only for ordered numeric or sequential partitions)</li>
+<li>decision tables
+<ul>
+<li><code>minimum coverage standard</code> is to have at least one test case per decision rule in the table.</li>
+<li>different combinatiosns of conditions result in different outcomes</li>
+<li>good for recording complex business rules</li>
+</ul>
+</li>
+<li>state transition testing
+<ul>
+<li><code>state table</code> shows the relationship between states and inputs and highlights invalid transitions</li>
+</ul>
+</li>
+<li>pairwise testing</li>
+<li>use case testing
+<ul>
+<li>useful for designing acceptance testings with customer participation</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>white
+<ul>
+<li>based on code and the design of the system</li>
+<li>ability to derive caoverage of the whole application</li>
+<li>techniques
+<ol>
+<li>statement caoverage
+<ul>
+<li><code>coverage</code> is the # of executable statements executed by the test divided by the total # of statement</li>
+</ul>
+</li>
+<li>branch caoverage</li>
+<li>decision caoverage
+<ul>
+<li><code>coverage</code> is the # of decision outcomes executed by the test divided by the total # of decision outcomes</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>expericed
+<ul>
+<li>based on the knowledge of the tester with similar applications</li>
+<li>techniques
+<ol>
+<li>error guessing
+<ul>
+<li>enumerate al list of possible defects</li>
+</ul>
+</li>
+<li>exploratory testing (informal tests)
+<ul>
+<li>informal (not pre-defined) tests</li>
+<li>the test results are used to create tests for the areas that may need more testing</li>
+<li>conducted using session-based testing</li>
+<li>useful where
+<ul>
+<li>there are few specifictaion</li>
+<li>severe time pressure</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>Decision coverage</code> is stronger than <code>statement coverage</code>,
+100% decision coverage guarantees 100% statement coverage,
+but not vice versa.</p>
+</blockquote>
+<h1 id="2-choosing-a-test-technique-slides-21"><a class="header" href="#2-choosing-a-test-technique-slides-21">2. choosing a test technique <strong>(slides 21)</strong></a></h1>
+<p>depends on some factors</p>
+<ul>
+<li>type of the system</li>
+<li>level of risks</li>
+<li>type of risks</li>
+<li>knowledge of the testers</li>
+<li>time and budgets</li>
+</ul>
+<h1 id="31-tester-role"><a class="header" href="#31-tester-role">3.1 tester role</a></h1>
+<ul>
+<li>review and contribute to test plans</li>
+<li>analyze, review requirements and user stories</li>
+<li>identify test conditions</li>
+<li>design test environment</li>
+<li>implements test cases</li>
+<li>prepaire test data</li>
+<li>execute tests and evaluate the result</li>
+<li>automate the testing</li>
+</ul>
+<h1 id="32-testing-role-based-on-level"><a class="header" href="#32-testing-role-based-on-level">3.2 testing role based on level</a></h1>
+<div class="table-wrapper"><table><thead><tr><th>level</th><th>resposibility (done by)</th></tr></thead><tbody>
+<tr><td>component itegration</td><td>developer</td></tr>
+<tr><td>system integration</td><td>independent test team</td></tr>
+<tr><td>operational acceptance</td><td>operations/systems administration staff</td></tr>
+<tr><td>user acceptance</td><td>business analyst , subject matter experts and users</td></tr>
+</tbody></table>
+</div>
+<h1 id="4-independent-tester"><a class="header" href="#4-independent-tester">4. independent tester</a></h1>
+<ul>
+<li>benefits
+<ul>
+<li>testers are unbiased and see other and different defects</li>
+<li>testers can verify assumptions made by people during specification and implmentation of the system</li>
+</ul>
+</li>
+<li>drawbacks
+<ul>
+<li>isolation from development team</li>
+<li>developers may lose sense of responsibility for quality</li>
+<li>testers may be seen as bottleneck for release</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-configuration-management"><a class="header" href="#5-configuration-management">5. configuration management</a></h1>
+<ul>
+<li>the purpose is to
+<ol>
+<li>maintain integrity of work products throught the life cycle</li>
+<li>maintain traceability throughout the test process</li>
+<li>for the testers, it helps uniquely identifing the tested item, test documents, ...</li>
+</ol>
+</li>
+</ul>
+<h1 id="61-risks-and-testing"><a class="header" href="#61-risks-and-testing">6.1 risks and testing</a></h1>
+<blockquote>
+<p><code>risk</code></p>
+<blockquote>
+<p>the chance of an event, threat occurring and resulting in undesirable problem</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><code>level of risks</code>
+depends on</p>
+<ul>
+<li>likelihood/probability of an event happening</li>
+<li>impact/harm resulting from event</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>risk-based testing</code> used to</p>
+<ol>
+<li>focus effort required during testing</li>
+<li>decide where/when to start testing and identify areas that need more attention.</li>
+<li>reduce the probability of an adverse event occurring, or to reduce its impact.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><code>Resulting product risk information is used to guide test activities</code></p>
+<ul>
+<li>determine the test techniques to be employed.</li>
+<li>determine the extent of testing to be carried out.</li>
+<li>prioritize testing to find the critical defects as early as possible.</li>
+<li>determine whether any non-testing activities could be employed to
+reduce risk (e.g., providing training to inexperienced designers).</li>
+</ul>
+</blockquote>
+<h2 id="62-risk-types"><a class="header" href="#62-risk-types">6.2 risk types</a></h2>
+<blockquote>
+<p><code>project risks</code></p>
+<blockquote>
+<p>have negative effect on project's ability to achieve its objectives
+examples</p>
+</blockquote>
+<ul>
+<li>organizational factors
+<ul>
+<li>skill, training &amp; staff shortages</li>
+<li>personal issues</li>
+<li>political issues</li>
+<li>improper attitude such as not appreciating the value of finding defects during testing</li>
+</ul>
+</li>
+<li>technical issues
+<ul>
+<li>problem identifing the right requirements</li>
+<li>requirements can't be met</li>
+<li>environment not ready</li>
+<li>low code design</li>
+</ul>
+</li>
+<li>supplier issues
+<ul>
+<li>contractual issues</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>pruduct risks</code></p>
+<blockquote>
+<p>the possibility that a work product may fail to satisfy the needs of users/stakeholders
+examples</p>
+</blockquote>
+<ul>
+<li>may not perform intended functions</li>
+<li>may not support some non functional requirements</li>
+<li>bad response time</li>
+<li>bad user experience</li>
+</ul>
+</blockquote>
+<h2 id="31-bug-life-cycle"><a class="header" href="#31-bug-life-cycle">3.1 bug life cycle</a></h2>
+<blockquote>
+<p><code>defect age</code>: time gap between date of detection &amp; date of closure</p>
+</blockquote>
+<ul>
+<li><code>new</code> posted for the 1st time</li>
+<li><code>assigned</code> assign bugs to the developing team</li>
+<li><code>open</code> developer started working on the defect fix to be added to (duplicate, deffered or not a bug)</li>
+<li><code>fixed</code> bug is fixed and is passed to testing team</li>
+<li><code>pendeing retest</code></li>
+<li><code>retest</code> do the retesting on of the changed code</li>
+<li><code>verified</code> the bug is verified to be fixed</li>
+<li><code>reopen</code> bug is still remains after is fixed</li>
+<li><code>closed</code> the bug no longer exists on the software</li>
+</ul>
+<h2 id="32-bug-status-by-the-developer"><a class="header" href="#32-bug-status-by-the-developer">3.2 bug status by the developer</a></h2>
+<ul>
+<li><code>duplicate</code></li>
+<li><code>rejected</code></li>
+<li><code>deffered</code> to be fixed in the next releases, or its priority is low</li>
+<li><code>not a bug</code></li>
+</ul>
+<h2 id="4-testing-tools"><a class="header" href="#4-testing-tools">4. testing tools</a></h2>
+<blockquote>
+<p><code>benefits of using testing tools</code></p>
+<ul>
+<li>reduction in repetivive manual work</li>
+<li>greater consistency and repeatability</li>
+<li>easier access to information about testing (metrics, graphs, ...)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>risks of using testing tools</code></p>
+<ul>
+<li>expectations for the tool may be unrealistic</li>
+<li>time and cost for the initial introduction of the tool</li>
+<li>vendor may provide a poor response for support, defect fixes, and upgrades</li>
+<li>may be relied on too much</li>
+<li>new tehcnology may not be support by the tool</li>
+<li>open source project may be suspended</li>
+</ul>
+</blockquote>
+<h1 id="5-test-execution-tools"><a class="header" href="#5-test-execution-tools">5. test execution tools</a></h1>
+<p>execute test objects using automated test scripts</p>
+<blockquote>
+<p><code>approuches</code></p>
+<ul>
+<li>data-driven testing
+<ul>
+<li>separating the “data set” from the actual “test case” (code)</li>
+<li>the same test can be run with many input avaiable to get better coverage</li>
+</ul>
+</li>
+<li>keyword-driven testing
+<ul>
+<li>framework has all instructions written in an external execl file</li>
+<li>generic script processes keywords describing the actions to be taken to perform a specific step</li>
+</ul>
+</li>
+<li>model-based testing (<strong>MBT</strong>)
+<ul>
+<li>use system's models (UML diagrams) to generate test caes</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="6-principles-for-tool-selection"><a class="header" href="#6-principles-for-tool-selection">6. principles for Tool Selection</a></h1>
+<ul>
+<li><code>Identification of opportunities for an improved</code> test process supported by tools</li>
+<li>Understanding of technologies used by test objects (<code>select tool compatible with technology</code>)</li>
+<li>Check used build and CI tools within organization, to <code>ensure tool compatibility and integration</code></li>
+<li><code>Evaluation of the tool against clear requirements</code> and objective criteria</li>
+<li>Consideration of whether or not the <code>tool is available for a free trial period</code> (and for how long)</li>
+<li>Evaluation of the vendor (<code>including training/commercial aspects/support after sale</code>)</li>
+<li>Identification of <code>internal requirements for coaching and mentoring in the use of the tool</code></li>
+<li>Evaluation of <code>training needs and skills</code> of those who will be working directly with the tool(s)</li>
+<li>Consideration of <code>pros and cons of various licensing models</code> (e.g., commercial or open source)</li>
+<li><code>Estimation of a cost-benefit</code> ratio based on a concrete business case (if required)</li>
+</ul>
+<h1 id="7-pilot-projects-for-introducing-a-tool"><a class="header" href="#7-pilot-projects-for-introducing-a-tool">7. pilot Projects for introducing a Tool</a></h1>
+<blockquote>
+<p><code>objectives</code></p>
+<ul>
+<li>gain in-depth knowledge about tool strengths and weaknesses</li>
+<li>evaluate how the tool fits with existing processes</li>
+<li>decide on standard ways of using, managing, storing it</li>
+<li>Assess whether the benefits will be achieved</li>
+<li>Understand the metrics that you wish the tool to collect and report</li>
+</ul>
+</blockquote>
+<h1 id="8-success-factors-for-tools"><a class="header" href="#8-success-factors-for-tools">8 success Factors for Tools</a></h1>
+<ul>
+<li><code>Rolling out the tool</code> to the rest of the organization incrementally</li>
+<li>Adapting and improving processes to fit with the use of the tool</li>
+<li><code>Providing training, coaching,</code> and mentoring <code>for tool users</code></li>
+<li><code>Defining guidelines</code> for the use of the tool (e.g., internal standards for automation)</li>
+<li><code>Gathering usage information</code> from the actual use of the tool</li>
+<li>Monitoring tool use and <code>benefits</code></li>
+<li><code>Providing support</code> to the users of a given tool</li>
+<li><code>Gathering lessons</code> learned from all users</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../lectures/lecture_4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../lectures/lecture_6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../lectures/lecture_4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../lectures/lecture_6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+        <!-- Google Analytics Tag -->
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'G-Q0R6TK9CN5', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
