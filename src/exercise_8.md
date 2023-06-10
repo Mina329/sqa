@@ -228,9 +228,17 @@
 12. Chart represents the amount of work left to be done against time allocated to the release or iteration.
 13. Testing adequate in Agile projects in case of limited time available for test analysis and limited details of the user stories.
 14. Capture story cards, development tasks, test tasks created during iteration planning, using color-coordinated cards.
+15. Is the software product easy to use, learn and understand from the user’s perspective?  
+16. The effort needed to make specified modifications.  Is the software product easy to maintain?
+17. The relationship between the level of performance of the software and the amount of resources used, under stated conditions.  Does the software product use the hardware,system software and other resources efficiently? 
+18. It refers to the validation of the documents and specifications on which test cases are designed.
+19. The ability of software to be transferred from one environment to another.  Is the software product portable?
+20. The ability to interact with specified systems. Does the software product work with other software applications, as required by the users?
+21. checking default languages, currency, date, and time format if it is designed for a particular region/locality. 
+22. It is done in order to check how fast and better the application can recover after it has gone through any type of crash or hardware failure.
 
 >> 1. `Minimum Viable Product (MVP)`
->> 2. `Sustainable Pace `
+>> 2. `Slack time `
 >> 3. `release planning`
 >> 4. `Work-in-Progress WIP Limit`
 >> 5. `Kanban`
@@ -242,7 +250,15 @@
 >> 11. `Exploratory testing`
 >> 12. `burndown charts`
 >> 13. `Exploratory testing`
->> 14. `Test Status and Progress`
+>> 14. `Agile Task Board`
+>> 15. `Usability`
+>> 16. `Maintainability`
+>> 17. `Efficiency`
+>> 18. `Baseline`
+>> 19. `Portability`
+>> 20. `Interoperability`
+>> 21. `Localization`
+>> 22. `Recovery`
 
 ## 3. What does collective code ownership mean?
 
